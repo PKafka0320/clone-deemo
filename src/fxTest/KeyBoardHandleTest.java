@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
 
-public class KeyBoardHandle extends Application {
+public class KeyBoardHandleTest extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
@@ -30,7 +30,7 @@ public class KeyBoardHandle extends Application {
         {
             public void handle(long currentNanoTime)
             {
-                System.out.println(kbh.getPressedLine());
+                System.out.println(kbh.getInput());
             }
         }.start();
  

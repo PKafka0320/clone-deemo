@@ -19,12 +19,12 @@ public class KeyboardHandler {
 	public KeyboardHandler(Scene theScene) {
 		this.theScene = theScene;
 		
-		inputList.add("S");
 		inputList.add("D");
 		inputList.add("F");
+		inputList.add("G");
+		inputList.add("H");
 		inputList.add("J");
 		inputList.add("K");
-		inputList.add("L");
 		
 		for(int i=0; i<6; i++) {
 			convertInput.put(inputList.get(i), i+1);
@@ -39,7 +39,7 @@ public class KeyboardHandler {
 	
 	                // only add once... prevent duplicates
 	                if ( !input.contains(code) )
-	                    input.add( code );
+	                input.add( code );
 	            }
 	        });
 	
