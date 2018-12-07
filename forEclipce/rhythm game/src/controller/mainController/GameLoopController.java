@@ -26,15 +26,17 @@ public class GameLoopController {
 			double currentTime;
 			
 			public void start() {
+				noteController.setNotes("test1");
+				
 				this.startNanoTime = System.nanoTime();
-				noteController.setNotes("music1");
+				noteController.setStartTime( (this.startNanoTime/1000000000.0) + 3 );
 				
 				super.start();
 			}
 			
 			public void handle(long currentNanoTime)
 			{
-				this.currentTime = (currentNanoTime - this.startNanoTime) / 1000000000.0;
+				this.currentTime = ( (currentNanoTime-this.startNanoTime) / 1000000000.0 ) - 3;
 				
 				if( !noteController.update(this.currentTime) ) {
 					super.stop();

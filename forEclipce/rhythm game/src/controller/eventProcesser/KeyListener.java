@@ -6,7 +6,6 @@ import etc.GameInputFormat;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import noteController.CollisionChecker;
 
 public class KeyListener {
 	Scene theScene;
@@ -15,7 +14,6 @@ public class KeyListener {
 	GameInputFormat inputChecker;
 	ArrayList<GameInputFormat> inputList = new ArrayList<GameInputFormat>();
 	ArrayList<String> inputCheckTable = new ArrayList<String>();
-	CollisionChecker cc = new CollisionChecker();
 	
 	public KeyListener( Scene theScene ) {
 		this.theScene = theScene;

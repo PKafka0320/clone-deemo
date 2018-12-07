@@ -17,9 +17,13 @@ public class CollisionChecker {
 		collisionCheckCriterion = inputCCC;
 	}
 	
-	public String checkIsCollision(NoteFormat currentNote, GameInputFormat currentInput) {
+	public boolean checkLine(NoteFormat currentNote, GameInputFormat currentInput) {
+		return ( currentNote.getLine() == currentInput.getLine() );
+	}
+	
+	public String checkIsCollision(NoteFormat currentNote, GameInputFormat currentInput, double startTime) {
 		double noteTiming = currentNote.getTiming(); // 4
-		double inputTiming = currentInput.getTiming(); // 3;
+		double inputTiming = currentInput.getTiming() - startTime; // 3;
 		
 		double timingInterval = Math.abs(noteTiming - inputTiming);
 		int collisionType = 0;
@@ -30,14 +34,16 @@ public class CollisionChecker {
 		
 		if(this.collisionCheckCriterion[0] < timingInterval)
 			collisionType = 0;
+		
 		for(int i=0; i<2; i++) {
-			if(collisionCheckCriterion[i] < timingInterval && timingInterval < collisionCheckCriterion[i+1])
-				collisionType = i;
+			if(collisionCheckCriterion[i+1] < timingInterval && timingInterval < collisionCheckCriterion[i])
+				collisionType = i+1;
 		}
 		
 		if(this.collisionCheckCriterion[2] > timingInterval)
 			collisionType = 3;
 		
+		System.out.println(noteTiming+" "+inputTiming+" "+timingInterval);
 		return collisionConverter.toCollisionType(collisionType);
 	}
 }

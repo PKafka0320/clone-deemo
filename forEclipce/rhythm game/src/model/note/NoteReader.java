@@ -21,7 +21,8 @@ public class NoteReader {
 		try {
 			Path currentRelativePath = Paths.get("");
 			filePath = currentRelativePath.toAbsolutePath().toString();
-			File noteFile = new File(filePath+"\\asset\\music\\notes\\"+fileName+".txt");
+//			File noteFile = new File(filePath+"\\asset\\music\\notes\\"+fileName+".txt");
+			File noteFile = new File(filePath+"/asset/music/notes/"+fileName+".txt"); // for mac
 //			File noteFile = new File("file:./asset/music/notes/"+fileName+".txt");
 			
 			fileScan = new Scanner(noteFile);
