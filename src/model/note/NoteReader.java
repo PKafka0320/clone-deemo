@@ -1,4 +1,4 @@
-package notes;
+package note;
 
 import java.util.Scanner;
 
@@ -13,10 +13,14 @@ public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
 	
-	public NoteReader(String fileName){
+	String filePath;
+	
+	public NoteReader(){
+	}
+	public Queue<NoteFormat> readNote(String fileName){
 		try {
 			Path currentRelativePath = Paths.get("");
-			String filePath = currentRelativePath.toAbsolutePath().toString();
+			filePath = currentRelativePath.toAbsolutePath().toString();
 			File noteFile = new File(filePath+"\\asset\\music\\notes\\"+fileName+".txt");
 //			File noteFile = new File("file:./asset/music/notes/"+fileName+".txt");
 			
@@ -31,16 +35,13 @@ public class NoteReader {
 						notes.add(new NoteFormat(i+1, Double.parseDouble(oneNote[1])));
 					}
 				}
-				
-				
 			}
-			
-		}catch(FileNotFoundException e) {
-			System.out.println("Fail to loading "+fileName+".txt");
+			return notes;
 		}
-	}
-	
-	public Queue<NoteFormat> getNotes() {
-		return notes;
+		catch(FileNotFoundException e) {
+			System.out.println(filePath+"\\asset\\music\\notes\\"+fileName+".txt");
+			System.out.println("Fail to loading "+fileName+".txt");
+			return null;
+		}
 	}
 }

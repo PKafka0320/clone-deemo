@@ -1,9 +1,8 @@
-package notes;
+package noteController;
 
-public class NoteFormat{
-	int line;
-	double timing;
-	
+import note.NoteFormat;
+
+public class NotePositionCalc {
 	double droptime = 2;
 	
 	//30 -> 100, 4 -> 20 / 10/3배, 배수로 계산
@@ -23,58 +22,61 @@ public class NoteFormat{
 	double locationX;
 	double locationY = startLocationY;
 	
-	public NoteFormat(int line, double timing) {
-		this.line = line;
-		this.timing = timing/1000.0;
+	public NotePositionCalc() {
 	}
 	
-	public int getLine() {
-		return this.line;
+	public double[] getNotePosition(NoteFormat currentNote, double currentTime) {
+		double sizeY = this.getSizeY(currentTime, currentNote);
+		double y = this.getLocationY(currentTime, currentNote);
+//		if(y > 430) {
+//			return null;
+//		}
+		double sizeX = this.getSizeX(currentTime, currentNote);
+		double x = this.getLocationX(sizeX, currentNote);
+		double[] position = {x, y, sizeX, sizeY};
+		return position;
+		
 	}
 	
-	public double getTiming() {
-		return this.timing;
+	public boolean isOnScreen(double currentTime, NoteFormat note) {
+		return !(note.getTiming() > currentTime + this.droptime);
 	}
 	
-	public boolean isOnScreen(double currentTime) {
-		return !(this.timing > currentTime + this.droptime);
-	}
-	
-	public double getSizeX(double currentTime) {
+	public double getSizeX(double currentTime, NoteFormat note) {
 //		double cTime = this.timing-currentTime;
 //		double dX = ( this.sizeX-( this.sizeX/this.multiple ) )/this.droptime;
 //		this.currentSizeX = this.sizeX - dX*cTime;
 //		return this.sizeX - dX*cTime;
-		double cTime = this.droptime - ( this.timing-currentTime );
+		double cTime = this.droptime - ( note.getTiming()-currentTime );
 		double dX = ( this.sizeX/this.multiple )*( Math.pow( Math.E, this.indicesForSizeX * cTime ) );
 		this.currentSizeX = dX;
 		return dX;
 	}
 	
-	public double getSizeY(double currentTime) {
+	public double getSizeY(double currentTime, NoteFormat note) {
 //		double cTime = this.timing-currentTime;
 //		double dY = ( this.sizeY-( this.sizeY/this.multiple ) )/this.droptime;
 //		this.currentSizeY = this.sizeY - dY*cTime;
 //		return this.sizeY - dY*cTime;
-		double cTime = this.droptime - ( this.timing-currentTime );
+		double cTime = this.droptime - ( note.getTiming()-currentTime );
 		double dY = ( this.sizeY/this.multiple )*( Math.pow( Math.E, this.indicesForSizeY * cTime ) );
 		this.currentSizeY = dY;
 		return dY;
 	}
 	
-	public double getLocationX() {
+	public double getLocationX(NoteFormat note) {
 		double baseX = (400-(this.currentSizeX*3));
-		double lineX = this.currentSizeX*(this.line - 1);
+		double lineX = this.currentSizeX*(note.getLine() - 1);
 		return baseX+lineX;
 	}
 	
-	public double getLocationX(double sizeX) {
+	public double getLocationX(double sizeX, NoteFormat note) {
 		double baseX = (400-(sizeX*3));
-		double lineX = sizeX*(this.line - 1);
+		double lineX = sizeX*(note.getLine() - 1);
 		return baseX+lineX;
 	}
 	
-	public double getLocationY(double currentTime) {
+	public double getLocationY(double currentTime, NoteFormat note) {
 //		0 ~ 380
 //		5초 ~ 0초
 //		(dropTime - cTime)/5 = 0 ~ 1
@@ -84,7 +86,7 @@ public class NoteFormat{
 //		double cTime = this.timing-currentTime;
 //		double dY = (( ( this.droptime - cTime )/this.droptime)*410.0);
 //		e^at + b
-		double cTime = this.droptime - (this.timing-currentTime);
+		double cTime = this.droptime - (note.getTiming()-currentTime);
 		double dY = this.startLocationY*( Math.pow( Math.E, this.indicesForY * cTime ) );
 //		가속도
 //		double cTime = this.timing-currentTime;
@@ -93,15 +95,5 @@ public class NoteFormat{
 //		dY = dY*Math.pow(2, dt);
 		return this.locationY + dY-(this.currentSizeY/2) - 40;
 	}
-	public double[] getNotePosition(double currentTime) {
-		double sizeY = this.getSizeY(currentTime);
-		double y = this.getLocationY(currentTime);
-//		if(y > 430) {
-//			return null;
-//		}
-		double sizeX = this.getSizeX(currentTime);
-		double x = this.getLocationX(sizeX);
-		double[] position = {x, y, sizeX, sizeY};
-		return position;
-	}
+
 }

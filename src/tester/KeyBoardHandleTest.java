@@ -1,5 +1,9 @@
-package fxTest;
+package tester;
 
+import java.util.ArrayList;
+
+import etc.GameInputFormat;
+import eventProcesser.KeyListener;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -24,13 +28,23 @@ public class KeyBoardHandleTest extends Application {
         Canvas canvas = new Canvas( 512 - 64, 256 );
         root.getChildren().add( canvas );
  
-        KeyboardHandler kbh = new KeyboardHandler(theScene);
+        KeyListener kbh = new KeyListener(theScene);
+        double startTime = System.nanoTime()/1000000000.0;;
         
         new AnimationTimer()
         {
             public void handle(long currentNanoTime)
             {
-                System.out.println(kbh.getInput());
+            	ArrayList<GameInputFormat> currentInputList = kbh.getInputList();
+            	for(GameInputFormat currentInput : currentInputList) {
+            		System.out.print(",("+currentInput.getLine()+", "+(currentInput.getTiming()-startTime)+")");
+            	}
+            	System.out.println("");
+//            	ArrayList<String> currentInputList = kbh.getInputCheckTable();
+//            	for(String currentInput : currentInputList) {
+//            		System.out.print(", "+currentInput);            		
+//            	}
+//            	System.out.println("");
             }
         }.start();
  
