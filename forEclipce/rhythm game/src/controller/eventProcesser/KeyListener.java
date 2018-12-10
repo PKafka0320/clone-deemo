@@ -77,8 +77,12 @@ public class KeyListener {
 		return this.inputList.remove(currentInput);
 	}
 	
-	public boolean remove(GameInputFormat currentGameInput) {
+	public boolean removeGameInput(GameInputFormat currentGameInput) {
 		return this.gameInputList.remove(currentGameInput);
+	}
+	
+	public void removeGameInput(int index) {
+		this.gameInputList.remove(index);
 	}
 	
 	

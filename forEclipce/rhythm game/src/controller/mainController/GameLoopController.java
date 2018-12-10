@@ -45,7 +45,7 @@ public class GameLoopController {
 					super.stop();
 				}
 				
-				gameDrawer.draw(this.currentTime, noteController.getNoteOnScreen());
+				gameDrawer.draw(this.currentTime, noteController.getNoteOnScreen(), scoreController.getScoreFormat());
 				
 			}
 		};

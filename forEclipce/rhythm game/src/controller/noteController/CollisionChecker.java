@@ -42,7 +42,6 @@ public class CollisionChecker {
 		if(this.collisionCheckCriterion[2] > timingInterval)
 			collisionTypeNum = 3;
 		
-//		System.out.println(noteTiming+" "+inputTiming+" "+timingInterval);
 		return new CollisionTypeFormat(collisionTypeNum, currentNote.getLine());
 	}
 	

@@ -67,10 +67,10 @@ public class NoteController {
 					if( collisionType.getCollisionType() != CollisionTypeFormat.getPassType() ) {
 						scoreController.update(collisionType);
 						System.out.println(collisionType);
-						System.out.println( scoreController.getScore() );
+						System.out.println( scoreController.getScoreFormat() );
 						this.notesOnScreen.remove( currentNote );
 						index2--;
-						this.kListener.remove( currentInput );
+						this.kListener.removeGameInput( currentInput );
 						index1--;
 						break;
 					}
@@ -91,7 +91,7 @@ public class NoteController {
 				notesOnScreen.remove(i);
 				scoreController.update(collisionType);
 				System.out.println(collisionType);
-				System.out.println( scoreController.getScore() );
+				System.out.println( scoreController.getScoreFormat() );
 				i--;
 			}
 			i++;
@@ -106,10 +106,17 @@ public class NoteController {
 			NoteFormat currentNote = new NoteFormat( currentInput );
 			CollisionTypeFormat collisionType = cc.checkIsOut(currentNote, currentTime, npCalc.droptime);
 			if( collisionType.getCollisionType() == CollisionTypeFormat.getMissType() )  {
-				this.kListener.remove(currentInput);
+				this.kListener.removeGameInput(currentInput);
 				i--;
 			}
 			i++;
+		}
+	}
+	
+	public void clearInput() {
+		ArrayList<GameInputFormat> GameInputList = this.kListener.getInputLineList();
+		while( !(GameInputList.size() == 0) ) {
+			this.kListener.removeGameInput(0);
 		}
 	}
 	
@@ -132,7 +139,8 @@ public class NoteController {
 			ArrayList<GameInputFormat> GameInputList = this.kListener.getInputLineList();
 			this.checkCollision(GameInputList);
 			
-			this.deleteOutInput(currentTime);
+//			this.deleteOutInput(currentTime);
+			this.clearInput();
 			
 			return true;
 		}

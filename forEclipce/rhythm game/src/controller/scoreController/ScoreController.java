@@ -45,7 +45,7 @@ public class ScoreController {
 		}
 	}
 	
-	public ScoreFormat getScore() {
+	public ScoreFormat getScoreFormat() {
 		return this.score;
 	}
 }

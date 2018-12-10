@@ -24,10 +24,10 @@ public class GameDrawer {
 		return this.gameScreen;
 	}
 	
-	public void draw(double currentTime, ArrayList<NoteFormat> notesOnScreen/*, ScoreFormat score*/) {
+	public void draw(double currentTime, ArrayList<NoteFormat> notesOnScreen, ScoreFormat score) {
 		gc.drawImage(background, -0.5, -0.5, 801, 481);
 		noteDrawer.draw(notesOnScreen, currentTime);
-//		scoreDrawer.draw(ScoreFormat score);
 		gc.drawImage(cover, -0.5, -0.5, 801, 481);
+		scoreDrawer.drawScore(score); 
 	}
 }
