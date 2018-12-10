@@ -4,8 +4,13 @@ import etc.CollisionTypeFormat;
 import javafx.animation.AnimationTimer;
 
 public class ComboEffect extends AnimationTimer{
+	public static double effectDuration = 1.5;
+	
 	public boolean isStop = false;
 	public int line;
+	
+	public double startTime;
+	public double currentTime;
 	
 	public CollisionTypeFormat collisionType;
 	
@@ -16,7 +21,7 @@ public class ComboEffect extends AnimationTimer{
 	
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
+		this.startTime = System.nanoTime();
 		super.start();
 	}
 	
@@ -28,7 +33,13 @@ public class ComboEffect extends AnimationTimer{
 	
 	@Override
 	public void handle(long now) {
-		// TODO Auto-generated method stub
+		currentTime = ( now - startTime )/1000000000.0;
 		
+		// TODO make effect for when note checked and combo added
+		
+		
+		if(currentTime > effectDuration) {
+			this.stop();
+		}
 	}
 }
