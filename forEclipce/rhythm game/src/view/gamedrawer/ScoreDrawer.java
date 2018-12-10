@@ -31,4 +31,8 @@ public class ScoreDrawer {
 		gc.setFont(typeFont);
 		gc.fillText(score.getScore()+"", 400, 20);
 	}
+	
+	public void comboEffect(ScoreFormat score, double currentTime) {
+		// TODO make effect.java and link here
+	}
 }
