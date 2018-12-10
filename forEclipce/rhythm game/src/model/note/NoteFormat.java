@@ -1,5 +1,7 @@
 package note;
 
+import etc.GameInputFormat;
+
 public class NoteFormat {
 	int line;
 	double timing;
@@ -7,6 +9,10 @@ public class NoteFormat {
 	public NoteFormat(int line, double timing) {
 		this.line = line;
 		this.timing = timing/1000.0;
+	}
+	
+	public NoteFormat(GameInputFormat input) {
+		this.convertNoteFormat(input);
 	}
 	
 	public int getLine() {
@@ -19,5 +25,9 @@ public class NoteFormat {
 	
 	public String toString() {
 		return "("+this.line+", "+this.timing+")";
+	}
+	
+	public NoteFormat convertNoteFormat(GameInputFormat input) {
+		return new NoteFormat(input.getLine(), input.getTiming());
 	}
 }

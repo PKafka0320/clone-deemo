@@ -6,29 +6,41 @@ import etc.GameInputFormat;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import mainController.GameLoopController;
 
 public class KeyListener {
 	Scene theScene;
 	
-	GameInputFormat input;
-	GameInputFormat inputChecker;
-	ArrayList<GameInputFormat> inputList = new ArrayList<GameInputFormat>();
-	ArrayList<String> inputCheckTable = new ArrayList<String>();
+	GameInputFormat gameInput;
+	GameInputFormat gameInputChecker;
 	
-	public KeyListener( Scene theScene ) {
-		this.theScene = theScene;
+	ArrayList<GameInputFormat> gameInputList = new ArrayList<GameInputFormat>();
+	ArrayList<String> gameInputCheckTable = new ArrayList<String>();
+	
+	ArrayList<String> inputList = new ArrayList<String>();
+	
+	
+	public KeyListener( GameLoopController glController ) {
+		this.theScene = glController.getScene();
 		
 		theScene.setOnKeyPressed(
 			new EventHandler<KeyEvent>() {
 				public void handle(KeyEvent e) {
 					String code = e.getCode().toString();
-					double currentTime = System.nanoTime()/1000000000.0;
-					input = new GameInputFormat(code, currentTime);
-					inputChecker = new GameInputFormat(code);
-					String line = ""+inputChecker.getLine();
-					if ( !inputCheckTable.contains(line) ) {
-						inputCheckTable.add( line );
-						inputList.add(input);
+					if(GameInputFormat.getAvailableInputList().contains(code)) {
+						double currentTime = (System.nanoTime() - glController.startNanoTime)/1000000000.0 - glController.delayedTime;
+						gameInput = new GameInputFormat(code, currentTime);
+						gameInputChecker = new GameInputFormat(code);
+						String line = ""+gameInputChecker.getLine();
+						if ( !gameInputCheckTable.contains(line) ) {
+							gameInputCheckTable.add( line );
+							gameInputList.add(gameInput);
+						}						
+					}
+					else {
+						if( !inputList.contains(code) ) {
+							inputList.add(code);
+						}
 					}
 				}
 			});
@@ -37,22 +49,37 @@ public class KeyListener {
 		    new EventHandler<KeyEvent>() {
 		    	public void handle(KeyEvent e) {
 		    		String code = e.getCode().toString();
-		    		inputChecker = new GameInputFormat(code);
-					String line = ""+inputChecker.getLine();
-		    		inputCheckTable.remove( line );
+					if(GameInputFormat.getAvailableInputList().contains(code)) {
+						gameInputChecker = new GameInputFormat(code);
+						String line = ""+gameInputChecker.getLine();
+						gameInputCheckTable.remove( line );						
+					}
+					else {
+						inputList.remove(code);
+					}
 		    	}
 		    });
 	}
 	
-	public ArrayList<GameInputFormat> getInputList() {
-		return this.inputList;
+	public ArrayList<GameInputFormat> getInputLineList() {
+		return this.gameInputList;
 	}
 	
 	public ArrayList<String> getInputCheckTable() {
-		return this.inputCheckTable;
+		return this.gameInputCheckTable;
 	}
 	
-	public boolean remove(GameInputFormat currentInput) {
+	public ArrayList<String> getInputList() {
+		return this.inputList;
+	}
+	
+	public boolean remove(String currentInput) {
 		return this.inputList.remove(currentInput);
 	}
+	
+	public boolean remove(GameInputFormat currentGameInput) {
+		return this.gameInputList.remove(currentGameInput);
+	}
+	
+	
 }

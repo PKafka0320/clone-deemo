@@ -32,7 +32,7 @@ public class NotePositionCalc {
 //			return null;
 //		}
 		double sizeX = this.getSizeX(currentTime, currentNote);
-		double x = this.getLocationX(sizeX, currentNote);
+		double x = this.getLocationX(currentNote, sizeX);
 		double[] position = {x, y, sizeX, sizeY};
 		return position;
 		
@@ -70,9 +70,16 @@ public class NotePositionCalc {
 		return baseX+lineX;
 	}
 	
-	public double getLocationX(double sizeX, NoteFormat note) {
+	public double getLocationX(NoteFormat note, double sizeX) {
 		double baseX = (400-(sizeX*3));
 		double lineX = sizeX*(note.getLine() - 1);
+		return baseX+lineX;
+	}
+	
+	public double getLocationX(double currentTime, NoteFormat note) {
+		double nowSizeX = getSizeX(currentTime, note);
+		double baseX = (400-(nowSizeX*3));
+		double lineX = nowSizeX*(note.getLine() - 1);
 		return baseX+lineX;
 	}
 	

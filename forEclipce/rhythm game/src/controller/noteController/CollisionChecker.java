@@ -1,6 +1,6 @@
 package noteController;
 
-import etc.CollisionNameFormat;
+import etc.CollisionTypeFormat;
 import etc.GameInputFormat;
 import note.NoteFormat;
 
@@ -8,8 +8,7 @@ import note.NoteFormat;
 public class CollisionChecker {
 	//순차적으로 miss, bad, great, perfect를 판정하는 기준을 나타냄
 	//기준 수치 이하면 그 기준을 적용시킴
-	private double[] collisionCheckCriterion = {0.2, 0.12, 0.08};//기본값
-	private CollisionNameFormat collisionConverter = new CollisionNameFormat();
+	private double[] collisionCheckCriterion = {0.1, 0.06, 0.03};//기본값
 	
 	public CollisionChecker() {
 	}
@@ -21,29 +20,38 @@ public class CollisionChecker {
 		return ( currentNote.getLine() == currentInput.getLine() );
 	}
 	
-	public String checkIsCollision(NoteFormat currentNote, GameInputFormat currentInput, double startTime) {
+	public CollisionTypeFormat checkCollision(NoteFormat currentNote, GameInputFormat currentInput) {
 		double noteTiming = currentNote.getTiming(); // 4
-		double inputTiming = currentInput.getTiming() - startTime; // 3;
+		double inputTiming = currentInput.getTiming(); // 3;
 		
 		double timingInterval = Math.abs(noteTiming - inputTiming);
-		int collisionType = 0;
+		int collisionTypeNum = 0;
 		
 		if(-this.collisionCheckCriterion[0] > ( inputTiming - noteTiming ) ) {
-			return collisionConverter.toCollisionType(4);
+			return new CollisionTypeFormat(4, currentNote.getLine());
 		}
 		
 		if(this.collisionCheckCriterion[0] < timingInterval)
-			collisionType = 0;
+			collisionTypeNum = 0;
 		
 		for(int i=0; i<2; i++) {
 			if(collisionCheckCriterion[i+1] < timingInterval && timingInterval < collisionCheckCriterion[i])
-				collisionType = i+1;
+				collisionTypeNum = i+1;
 		}
 		
 		if(this.collisionCheckCriterion[2] > timingInterval)
-			collisionType = 3;
+			collisionTypeNum = 3;
 		
-		System.out.println(noteTiming+" "+inputTiming+" "+timingInterval);
-		return collisionConverter.toCollisionType(collisionType);
+//		System.out.println(noteTiming+" "+inputTiming+" "+timingInterval);
+		return new CollisionTypeFormat(collisionTypeNum, currentNote.getLine());
+	}
+	
+	public CollisionTypeFormat checkIsOut(NoteFormat currentNote, double currentTime, double noteDropTime) {
+		if( ( currentTime - currentNote.getTiming() ) > collisionCheckCriterion[0] ) {
+			return new CollisionTypeFormat(0, currentNote.getLine());
+		}
+		else {
+			return new CollisionTypeFormat(4, currentNote.getLine());
+		}
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameInputFormat {
-	ArrayList<String> availableKeyList = new ArrayList<String>(
+	static ArrayList<String> availableKeyList = new ArrayList<String>(
 		Arrays.asList("", "S", "D", "F", "J", "K", "L")
 	);
 	
@@ -37,5 +37,9 @@ public class GameInputFormat {
 	
 	public String toString() {
 		return "("+this.inputLine+", "+this.inputTime+")";
+	}
+	
+	public static ArrayList<String> getAvailableInputList(){
+		return availableKeyList;
 	}
 }

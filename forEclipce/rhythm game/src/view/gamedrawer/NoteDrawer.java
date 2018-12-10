@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import note.NoteFormat;
 import noteController.NotePositionCalc;
 
-public class DrawNote {
+public class NoteDrawer {
 	public ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	
 	private GraphicsContext gc;
@@ -15,7 +15,7 @@ public class DrawNote {
 	
 	private Image noteImage = new Image( "file:./asset/image/note.png" );
 	
-	public DrawNote(GraphicsContext gc) {
+	public NoteDrawer(GraphicsContext gc) {
 		this.gc = gc;
 	}
 	
