@@ -14,7 +14,7 @@ import scoreController.ScoreController;
 
 public class NoteController {
 	private ScoreController scoreController;
-	private CollisionChecker cc = new CollisionChecker(new double[]{0.2, 0.12, 0.08});
+	private CollisionChecker cc = new CollisionChecker(new double[]{0.12, 0.08, 0.03});
 	private NotePositionCalc npCalc = new NotePositionCalc();
 	private NoteReader nReader = new NoteReader();
 	private KeyListener kListener;
