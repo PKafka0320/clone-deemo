@@ -16,7 +16,7 @@ public class GameLoopController {
 	private KeyListener kListener = new KeyListener(this);
 	private GameDrawer gameDrawer = new GameDrawer();
 	private ScoreController scoreController = new ScoreController(gameDrawer.scoreDrawer);
-	private NoteController noteController = new NoteController(kListener, scoreController);
+	private NoteController noteController = new NoteController(kListener, scoreController, gameDrawer.getGc());
 	
 	public double startNanoTime;
 	public double delayedTime = 3.0;

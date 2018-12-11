@@ -30,4 +30,12 @@ public class GameDrawer {
 		gc.drawImage(cover, -0.5, -0.5, 801, 481);
 		scoreDrawer.drawScore(score); 
 	}
+
+	public GraphicsContext getGc() {
+		return gc;
+	}
+
+	public void setGc(GraphicsContext gc) {
+		this.gc = gc;
+	}
 }

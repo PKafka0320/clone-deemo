@@ -3,9 +3,11 @@ package noteController;
 import java.util.ArrayList;
 import java.util.Queue;
 
+import effectDrawer.NoteEffect;
 import etc.CollisionTypeFormat;
 import etc.GameInputFormat;
 import eventProcesser.KeyListener;
+import javafx.scene.canvas.GraphicsContext;
 import note.NoteFormat;
 import note.NoteReader;
 import scoreController.ScoreController;
@@ -16,14 +18,16 @@ public class NoteController {
 	private NotePositionCalc npCalc = new NotePositionCalc();
 	private NoteReader nReader = new NoteReader();
 	private KeyListener kListener;
+	private GraphicsContext gc;
 	
 	Queue<NoteFormat> notes;
 	ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	double startTime;
 	
-	public NoteController(KeyListener kListener, ScoreController scoreController) {
+	public NoteController(KeyListener kListener, ScoreController scoreController, GraphicsContext gc) {
 		this.kListener = kListener;
 		this.scoreController = scoreController;
+		this.gc = gc;
 	}
 	
 	public void setStartTime(double startTime) {
@@ -68,6 +72,8 @@ public class NoteController {
 						scoreController.update(collisionType, currentTime);
 						System.out.println(collisionType);
 						System.out.println( scoreController.getScoreFormat() );
+						new NoteEffect(gc, currentNote.getLine(), collisionType).start();
+						
 						this.notesOnScreen.remove( currentNote );
 						index2--;
 						this.kListener.removeGameInput( currentInput );
@@ -86,7 +92,7 @@ public class NoteController {
 		int i = 0;
 		while( !(notesOnScreen.size() == i) ) {
 			NoteFormat currentNote = notesOnScreen.get(i);
-			CollisionTypeFormat collisionType = cc.checkIsOut(currentNote, currentTime, npCalc.droptime);
+			CollisionTypeFormat collisionType = cc.checkIsOut(currentNote, currentTime, npCalc.getDroptime());
 			if( collisionType.getCollisionType() == CollisionTypeFormat.getMissType() )  {
 				notesOnScreen.remove(i);
 				scoreController.update(collisionType, currentTime);
