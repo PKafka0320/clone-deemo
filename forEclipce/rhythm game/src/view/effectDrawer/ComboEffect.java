@@ -43,9 +43,8 @@ public class ComboEffect extends AnimationTimer{
 	@Override
 	public void handle(long now) {
 		currentTime = ( now - startTime )/1000000000.0;
-//		gc.setFill(Color.WHITE);
-//		gc.fillRect(0, 0, 800, 800);
-		
+//        gc.setFill(Color.BLACK);
+//        gc.fillRect(0, 0, 800, 800);
 		// TODO make effect for when note checked and combo added
 		gc.setFill(Color.rgb(0, 0, 0, 0));
 		gc.fillRect(650, 110, 140, 160);
@@ -62,8 +61,9 @@ public class ComboEffect extends AnimationTimer{
 	}
 	
 	private double getVisibility(double currentTime) {
-		final double a = 4;
-		double x = ( currentTime - effectDuration/2 )/( effectDuration/2 )+effectDuration/6 ;
+		final double a = 3;
+		//use Gaussian function to calculate transparency effect
+		double x = ( currentTime - effectDuration/2 )/( effectDuration/2 )+effectDuration/5;
 		return Math.pow( Math.E, -Math.pow(a*x, 2) );
 	}
 }
