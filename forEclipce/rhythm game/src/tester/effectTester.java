@@ -22,7 +22,7 @@ public class effectTester extends Application {
         final Canvas canvas = new Canvas(W, H);
         stage.setScene(new Scene(new Group(canvas)));
         
-        ComboEffect cEffect = new ComboEffect(canvas, 30, new CollisionTypeFormat(3, 2) );
+        ComboEffect cEffect = new ComboEffect(canvas.getGraphicsContext2D(), 30, new CollisionTypeFormat(3, 2) );
         
         cEffect.start();
         

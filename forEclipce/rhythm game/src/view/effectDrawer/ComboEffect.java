@@ -10,7 +10,7 @@ public class ComboEffect extends AnimationTimer{
 	public static double effectDuration = 3;
 	
 	private GraphicsContext gc;
-	public boolean isStop = false;
+	public boolean isStop = true;
 	public int combo;
 
 	private Font comboFont = Font.loadFont("file:./asset/font/JUNGJ___.TTF", 120);
@@ -29,6 +29,7 @@ public class ComboEffect extends AnimationTimer{
 	
 	@Override
 	public void start() {
+		this.isStop = false;
 		this.startTime = System.nanoTime();
 		super.start();
 	}

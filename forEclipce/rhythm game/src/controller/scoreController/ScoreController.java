@@ -44,7 +44,7 @@ public class ScoreController {
 			return true;
 		}
 		catch (Exception e) {
-			System.out.println("Error Type "+e);
+			System.out.println("Error Type "+e+" in ScoreController");
 			return false;
 		}
 	}

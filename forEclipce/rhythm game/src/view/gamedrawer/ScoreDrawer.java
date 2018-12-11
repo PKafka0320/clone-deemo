@@ -12,6 +12,9 @@ public class ScoreDrawer {
 	
 	private Font scoreFont = Font.loadFont("file:./asset/font/rocknroll_typo_college.TTF", 40);
 	
+	private ComboEffect comboEffect;
+	private boolean isFirst = true;
+	
 	public ScoreDrawer(GraphicsContext gc) {
 		this.gc = gc;
 	}
@@ -23,6 +26,15 @@ public class ScoreDrawer {
 	}
 	
 	public void drawCombo(ScoreFormat score, double currentTime, CollisionTypeFormat collisionType) {
-		new ComboEffect(gc, score.getCombo(), collisionType).start();
+		if(isFirst || comboEffect.isStop) {
+			isFirst = false;
+			comboEffect = new ComboEffect(gc, score.getCombo(), collisionType);
+			comboEffect.start();
+		}
+		else {
+			comboEffect.stop();
+			comboEffect = new ComboEffect(gc, score.getCombo(), collisionType);
+			comboEffect.start();
+		}
 	}
 }
