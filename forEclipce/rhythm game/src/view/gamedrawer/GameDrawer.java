@@ -12,8 +12,8 @@ public class GameDrawer {
 	private Canvas gameScreen = new Canvas( 800, 480 );
 	private GraphicsContext gc = gameScreen.getGraphicsContext2D();
 	
-	private NoteDrawer noteDrawer = new NoteDrawer(gc);
-	private ScoreDrawer scoreDrawer = new ScoreDrawer(gc);
+	public NoteDrawer noteDrawer = new NoteDrawer(gc);
+	public ScoreDrawer scoreDrawer = new ScoreDrawer(gc);
 	private Image background = new Image("file:./asset/image/background3.png");
 	private Image cover = new Image("file:./asset/image/cover2.png");
 	

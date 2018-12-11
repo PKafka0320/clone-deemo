@@ -1,5 +1,7 @@
 package gamedrawer;
 
+import effectDrawer.ComboEffect;
+import etc.CollisionTypeFormat;
 import etc.ScoreFormat;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -9,8 +11,9 @@ public class ScoreDrawer {
 	private GraphicsContext gc;
 	
 	private Font scoreFont = Font.loadFont("file:./asset/font/rocknroll_typo_college.TTF", 40);
-	private Font comboFont = Font.loadFont("file:./asset/font/JUNGJ___.TTF", 60);
-	private Font typeFont = Font.loadFont("file:./asset/font/rocknroll_typo_bevel.TTF", 25);
+	
+	private ComboEffect comboEffect;
+	private boolean isFirst = true;
 	
 	public ScoreDrawer(GraphicsContext gc) {
 		this.gc = gc;
@@ -22,17 +25,16 @@ public class ScoreDrawer {
 		gc.fillText(score.getScore()+"", 700, 40);
 	}
 	
-	public void drawCombo(ScoreFormat score, double currentTime) {
-		gc.setFill(Color.WHITE);
-		gc.setFont(comboFont);
-		gc.fillText(score.getCombo()+"", 400, 20);	
-		
-		gc.setFill(Color.WHITE);
-		gc.setFont(typeFont);
-		gc.fillText(score.getScore()+"", 400, 20);
-	}
-	
-	public void comboEffect(ScoreFormat score, double currentTime) {
-		// TODO make effect.java and link here
+	public void drawCombo(ScoreFormat score, double currentTime, CollisionTypeFormat collisionType) {
+		if(isFirst || comboEffect.isStop) {
+			isFirst = false;
+			comboEffect = new ComboEffect(gc, score.getCombo(), collisionType);
+			comboEffect.start();
+		}
+		else {
+			comboEffect.stop();
+			comboEffect = new ComboEffect(gc, score.getCombo(), collisionType);
+			comboEffect.start();
+		}
 	}
 }
