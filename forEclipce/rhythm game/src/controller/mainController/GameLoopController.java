@@ -15,7 +15,7 @@ public class GameLoopController {
 	private AnimationTimer gameLoop;
 	private KeyListener kListener = new KeyListener(this);
 	private GameDrawer gameDrawer = new GameDrawer();
-	private ScoreController scoreController = new ScoreController();
+	private ScoreController scoreController = new ScoreController(gameDrawer.scoreDrawer);
 	private NoteController noteController = new NoteController(kListener, scoreController);
 	
 	public double startNanoTime;
@@ -42,7 +42,7 @@ public class GameLoopController {
 				this.currentTime = ( (currentNanoTime-startNanoTime) / 1000000000.0 ) - delayedTime;
 				
 				if( !noteController.update(this.currentTime) ) {
-					super.stop();
+//					super.stop();
 				}
 				
 				gameDrawer.draw(this.currentTime, noteController.getNoteOnScreen(), scoreController.getScoreFormat());
