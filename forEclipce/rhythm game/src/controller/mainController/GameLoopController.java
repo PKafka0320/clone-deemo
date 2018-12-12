@@ -6,6 +6,7 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import noteController.NoteController;
+import scoreController.ScoreCalc;
 import scoreController.ScoreController;
 
 public class GameLoopController {
@@ -30,6 +31,7 @@ public class GameLoopController {
 			
 			public void start() {
 				noteController.setNotes("test1");
+				scoreController.setScoreCalc(new ScoreCalc(noteController.noteAmount));
 				
 				startNanoTime = System.nanoTime();
 //				noteController.setStartTime( (startNanoTime/1000000000.0) + delayedTime );

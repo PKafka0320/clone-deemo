@@ -10,7 +10,7 @@ import gamedrawer.ScoreDrawer;
 //콤보는 perfect, great일때만 오르고, bad이하가 나오면 콤보가 끊김
 public class ScoreController {
 	ScoreFormat score = new ScoreFormat();
-	ScoreCalc sCalc = new ScoreCalc();
+	ScoreCalc sCalc;
 	ScoreDrawer scoreDrawer;
 	
 	ArrayList<String> availableTypeForCombo = new ArrayList<String>( CollisionTypeFormat.getCollisionTypeList().subList(2, 4) );
@@ -51,5 +51,9 @@ public class ScoreController {
 	
 	public ScoreFormat getScoreFormat() {
 		return this.score;
+	}
+	
+	public void setScoreCalc(ScoreCalc sCalc) {
+		this.sCalc = sCalc;
 	}
 }
