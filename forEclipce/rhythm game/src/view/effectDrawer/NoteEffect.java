@@ -21,6 +21,7 @@ public class NoteEffect extends AnimationTimer{
 	
 	public CollisionTypeFormat collisionType;
 	public int line;
+	public Color color;
 	
 	private double[] xPoints = new double[3];
 	private double[] yPoints = new double[3];
@@ -34,10 +35,15 @@ public class NoteEffect extends AnimationTimer{
 		xPoints[2] = xPoints[0] + npCalc.getInitSizeX();
 		yPoints[0] = npCalc.getLocationY(0, new NoteFormat(line, 0));
 		yPoints[2] = yPoints[0];
-//		if(collisionType.getCollisionType() == "perfect") {
-//		}
-//		else {
-//		}
+		if(collisionType.getCollisionType() == "perfect") {
+			color = Color.rgb(255, 215, 0, 0.3);
+		}
+		else if(collisionType.getCollisionType() == "great"){
+			color = Color.rgb(121, 233, 130, 0.3);
+		}
+		else if(collisionType.getCollisionType() == "bad") {
+			color = Color.rgb(83, 167, 206, 0.3);
+		}
 //		npCalc.getSizeX(npCalc.droptime, new NoteFormat((int) (line+( npCalc.getInitSizeX())/2 ), npCalc.droptime));
 		
 	}
@@ -64,7 +70,7 @@ public class NoteEffect extends AnimationTimer{
 		xPoints[1] = npCalc.getLocationX(-time/2, n) + npCalc.getSizeX(-time/2, n)/2;
 		yPoints[1] = npCalc.getLocationY(-time/2, n) + npCalc.getSizeY(-time/2, n)/2;
 		gc.setEffect(new GaussianBlur(50));
-		gc.setFill(Color.rgb(255,215,0,0.4));
+		gc.setFill(color);
 		gc.fillPolygon(xPoints, yPoints, 3);
 		gc.setEffect(null);
 		
