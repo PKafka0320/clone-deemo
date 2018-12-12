@@ -21,6 +21,7 @@ public class KeyListener {
 	
 	
 	public KeyListener( GameLoopController glController ) {
+		//use in gameScene
 		this.theScene = glController.getScene();
 		
 		theScene.setOnKeyPressed(
@@ -35,12 +36,11 @@ public class KeyListener {
 						if ( !gameInputCheckTable.contains(line) ) {
 							gameInputCheckTable.add( line );
 							gameInputList.add(gameInput);
-						}						
-					}
-					else {
-						if( !inputList.contains(code) ) {
-							inputList.add(code);
 						}
+					}
+					
+					if( !inputList.contains(code) ) {
+						inputList.add(code);
 					}
 				}
 			});
@@ -54,9 +54,34 @@ public class KeyListener {
 						String line = ""+gameInputChecker.getLine();
 						gameInputCheckTable.remove( line );						
 					}
-					else {
-						inputList.remove(code);
+					
+					inputList.remove(code);
+		    	}
+		    });
+	}
+	
+	public KeyListener( Scene theScene ) {
+		//use in other scene
+		//ex) mainScene, settingScene
+		this.theScene = theScene;
+		
+		theScene.setOnKeyPressed(
+			new EventHandler<KeyEvent>() {
+				public void handle(KeyEvent e) {
+					String code = e.getCode().toString();
+					
+					if( !inputList.contains(code) ) {
+						inputList.add(code);
 					}
+				}
+			});
+		
+		theScene.setOnKeyReleased(
+		    new EventHandler<KeyEvent>() {
+		    	public void handle(KeyEvent e) {
+		    		String code = e.getCode().toString();
+					
+					inputList.remove(code);
 		    	}
 		    });
 	}

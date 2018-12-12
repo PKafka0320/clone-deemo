@@ -14,7 +14,7 @@ public class GameLoopTester extends Application {
 	{
 		theStage.setTitle( "gameLoop Example" );
 		
-		GameLoopController controller = new GameLoopController();
+		GameLoopController controller = new GameLoopController("test1");
 		theStage.setScene( controller.getScene() );
 		
 		controller.start();

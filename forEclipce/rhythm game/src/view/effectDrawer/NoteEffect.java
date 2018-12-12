@@ -69,8 +69,9 @@ public class NoteEffect extends AnimationTimer{
 		NoteFormat n = new NoteFormat(line, effectDuration);
 		xPoints[1] = npCalc.getLocationX(-time/2, n) + npCalc.getSizeX(-time/2, n)/2;
 		yPoints[1] = npCalc.getLocationY(-time/2, n) + npCalc.getSizeY(-time/2, n)/2;
-		gc.setEffect(new GaussianBlur(50));
+		
 		gc.setFill(color);
+		gc.setEffect(new GaussianBlur(50));
 		gc.fillPolygon(xPoints, yPoints, 3);
 		gc.setEffect(null);
 		

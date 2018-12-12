@@ -52,7 +52,7 @@ public class ComboEffect extends AnimationTimer{
 		gc.setFont(comboFont);
 		gc.fillText(combo+"", 700, 230);
 		gc.setFont(typeFont);
-		gc.fillText(collisionType.toString(), 700, 240);
+		gc.fillText(collisionType.getCollisionType(), 700, 240);
 		gc.setFill(Color.BLACK);
 		
 		if(currentTime > effectDuration) {

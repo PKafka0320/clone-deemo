@@ -5,6 +5,9 @@ import gamedrawer.GameDrawer;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import noteController.NoteController;
 import scoreController.ScoreCalc;
 import scoreController.ScoreController;
@@ -18,19 +21,23 @@ public class GameLoopController {
 	private GameDrawer gameDrawer = new GameDrawer();
 	private ScoreController scoreController = new ScoreController(gameDrawer.scoreDrawer);
 	private NoteController noteController = new NoteController(kListener, scoreController, gameDrawer.getGc());
+	static MediaPlayer musicPlayer;
 	
 	public double startNanoTime;
 	public double delayedTime = 3.0;
 	
-	public GameLoopController() {
+	public GameLoopController(String musicName) {
 		gameComponents.getChildren().add( gameDrawer.getCanvas() );
+		Media music = new Media("file:/asset/music/soundtrack/");
+		
+		musicPlayer = new MediaPlayer(music);
 		
 		this.gameLoop = new AnimationTimer()
 		{
 			double currentTime;
 			
 			public void start() {
-				noteController.setNotes("test1");
+				noteController.setNotes(musicName);
 				scoreController.setScoreCalc(new ScoreCalc(noteController.noteAmount));
 				
 				startNanoTime = System.nanoTime();
@@ -42,6 +49,9 @@ public class GameLoopController {
 			public void handle(long currentNanoTime)
 			{
 				this.currentTime = ( (currentNanoTime-startNanoTime) / 1000000000.0 ) - delayedTime;
+				if(currentTime > 0 && !( musicPlayer.getStatus() == Status.PLAYING ) ) {
+					musicPlayer.play();
+				}
 				
 				if( !noteController.update(this.currentTime) ) {
 //					super.stop();
