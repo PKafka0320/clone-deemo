@@ -22,7 +22,7 @@ public class ScoreDrawer {
 	public void drawScore(ScoreFormat score) {
 		gc.setFill(Color.WHITE);
 		gc.setFont(scoreFont);
-		gc.fillText(score.getScore()+"", 700, 40);
+		gc.fillText((int)Math.round(score.getScore())+"", 650, 40);
 	}
 	
 	public void drawCombo(ScoreFormat score, double currentTime, CollisionTypeFormat collisionType) {

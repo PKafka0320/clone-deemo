@@ -21,6 +21,7 @@ public class NoteController {
 	private GraphicsContext gc;
 	
 	Queue<NoteFormat> notes;
+	public int noteAmount;
 	ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	double startTime;
 	
@@ -41,6 +42,7 @@ public class NoteController {
 			return false;
 		}
 		else {
+			this.noteAmount = notes.size();
 			return true;
 		}
 	}
