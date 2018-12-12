@@ -9,16 +9,15 @@ public class GameLoopTester extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	public void start(Stage theStage) 
-	{
-		theStage.setTitle( "gameLoop Example" );
-		
-		GameLoopController controller = new GameLoopController("test1");
-		theStage.setScene( controller.getScene() );
-		
+
+	public void start(Stage theStage) {
+		theStage.setTitle("gameLoop Example");
+
+		GameLoopController controller = new GameLoopController("music1");
+		theStage.setScene(controller.getScene());
+
 		controller.start();
-		
+
 		theStage.show();
 	}
 }

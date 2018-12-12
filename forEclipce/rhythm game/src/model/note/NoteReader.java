@@ -12,36 +12,36 @@ import java.nio.file.Paths;
 public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
-	
+
 	String filePath;
-	
-	public NoteReader(){
+
+	public NoteReader() {
 	}
-	public Queue<NoteFormat> readNote(String fileName){
+
+	public Queue<NoteFormat> readNote(String fileName) {
 		try {
 			Path currentRelativePath = Paths.get("");
 			filePath = currentRelativePath.toAbsolutePath().toString();
 //			File noteFile = new File(filePath+"\\asset\\music\\notes\\"+fileName+".txt");
-			File noteFile = new File(filePath+"/asset/music/notes/"+fileName+".txt"); // for mac
+			File noteFile = new File(filePath + "/asset/music/notes/" + fileName + ".txt"); // for mac
 //			File noteFile = new File("file:./asset/music/notes/"+fileName+".txt");
-			
+
 			fileScan = new Scanner(noteFile);
-			
-			while(fileScan.hasNextLine()) {
+
+			while (fileScan.hasNextLine()) {
 				String[] oneNote = fileScan.nextLine().split("#");
 				String[] lineString = oneNote[0].split(",");
-				
-				for(int i=0; i<6; i++) {
-					if(Integer.parseInt(lineString[i]) == 1) {
-						notes.add(new NoteFormat(i+1, Double.parseDouble(oneNote[1])));
+
+				for (int i = 0; i < 6; i++) {
+					if (Integer.parseInt(lineString[i]) == 1) {
+						notes.add(new NoteFormat(i + 1, Double.parseDouble(oneNote[1])));
 					}
 				}
 			}
 			return notes;
-		}
-		catch(FileNotFoundException e) {
-			System.out.println(filePath+"\\asset\\music\\notes\\"+fileName+".txt");
-			System.out.println("Fail to loading "+fileName+".txt");
+		} catch (FileNotFoundException e) {
+			System.out.println(filePath + "\\asset\\music\\notes\\" + fileName + ".txt");
+			System.out.println("Fail to loading " + fileName + ".txt");
 			return null;
 		}
 	}
