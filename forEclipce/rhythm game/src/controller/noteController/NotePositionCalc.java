@@ -3,7 +3,7 @@ package noteController;
 import note.NoteFormat;
 
 public class NotePositionCalc {
-	private double droptime = 4;
+	private double droptime = 2;
 
 	// 30 -> 100, 4 -> 20 / 10/3배, 배수로 계산
 	double multiple = 10.0 / 1.0; // 배수
