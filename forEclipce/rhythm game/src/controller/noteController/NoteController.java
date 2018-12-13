@@ -14,7 +14,7 @@ import scoreController.ScoreController;
 
 public class NoteController {
 	private ScoreController scoreController;
-	private CollisionChecker cc = new CollisionChecker(new double[] { 0.12, 0.08, 0.03 });
+	private CollisionChecker cc = new CollisionChecker(new double[] { 0.2, 0.12, 0.08 });
 	private NotePositionCalc npCalc = new NotePositionCalc();
 	private NoteReader nReader = new NoteReader();
 	private KeyListener kListener;
@@ -63,7 +63,7 @@ public class NoteController {
 		while (!(GameInputList.size() == index1)) {
 			GameInputFormat currentInput = GameInputList.get(index1);
 			index2 = 0;
-			while (!(notesOnScreen.size() == index2)) {
+			while ( !(notesOnScreen.size() == index2) && !(6 == index2)) {
 				NoteFormat currentNote = notesOnScreen.get(index2);
 
 				if (cc.checkLine(currentNote, currentInput)) {
@@ -87,6 +87,10 @@ public class NoteController {
 			}
 			index1++;
 		}
+	}
+	
+	public void perfect(ArrayList<GameInputFormat> GameInputList, double currentTime) {
+		
 	}
 
 	public void deleteOutNotes(double currentTime) {

@@ -33,7 +33,7 @@ public class KeyListener {
 					gameInputChecker = new GameInputFormat(code);
 					String line = "" + gameInputChecker.getLine();
 					if (!gameInputCheckTable.contains(line)) {
-//						System.out.println(line+" "+currentTime);
+						System.out.println(line + " " + currentTime);
 						gameInputCheckTable.add(line);
 						gameInputList.add(gameInput);
 					}

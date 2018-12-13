@@ -3,7 +3,7 @@ package noteController;
 import note.NoteFormat;
 
 public class NotePositionCalc {
-	private double droptime = 2;
+	private double droptime = 4;
 
 	// 30 -> 100, 4 -> 20 / 10/3배, 배수로 계산
 	double multiple = 10.0 / 1.0; // 배수
@@ -40,7 +40,7 @@ public class NotePositionCalc {
 	}
 
 	public boolean isOnScreen(double currentTime, NoteFormat note) {
-		return !(note.getTiming() > currentTime + droptime);
+		return !(note.getTiming() - 1 > currentTime + droptime);
 	}
 
 	public double getSizeX(double currentTime, NoteFormat note) {

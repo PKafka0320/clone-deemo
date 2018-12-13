@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
+	
+	private double sink = 400;
 
 	String filePath;
 
@@ -34,7 +36,7 @@ public class NoteReader {
 
 				for (int i = 0; i < 6; i++) {
 					if (Integer.parseInt(lineString[i]) == 1) {
-						notes.add(new NoteFormat(i + 1, Double.parseDouble(oneNote[1])));
+						notes.add( new NoteFormat(i + 1, Double.parseDouble(oneNote[1]) + sink) );
 					}
 				}
 			}

@@ -34,8 +34,7 @@ public class GameLoopController {
 	public GameLoopController(String musicName) {
 		gameComponents.getChildren().add(gameDrawer.getCanvas());
 
-		File file = new File(
-				System.getProperty("user.dir") + "\\asset\\music\\soundtrack\\" + "SuspensefulThirdDay" + ".mp3");
+		File file = new File(System.getProperty("user.dir") + "\\asset\\music\\soundtrack\\" + musicName + ".mp3");
 		Media music = new Media(file.toURI().toString());
 
 		musicPlayer = new MediaPlayer(music);
