@@ -11,7 +11,7 @@
             <Image url="@../../asset/image/background.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Songs" fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="165.0" onKeyPressed="#KeyboardInput" onMousePressed="#SongsPressed" onMouseReleased="#SongsReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Songs" fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="165.0" onMousePressed="#SongsPressed" onMouseReleased="#SongsReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../asset/image/SongsButton.png" />
          </image>
