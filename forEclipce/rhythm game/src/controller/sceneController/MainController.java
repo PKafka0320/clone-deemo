@@ -1,4 +1,4 @@
-package application;
+package sceneController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class Controller implements Initializable {
+public class MainController implements Initializable {
 	
 	SceneChanger sceneChanger = new SceneChanger();
 	

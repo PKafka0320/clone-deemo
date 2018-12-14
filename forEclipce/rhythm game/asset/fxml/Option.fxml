@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Option" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OptionController">
+<AnchorPane fx:id="Option" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.OptionController">
    <children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/background.png" />
          </image>
       </ImageView>
-      <Label layoutX="319.0" layoutY="56.0" prefHeight="67.0" prefWidth="162.0" text="Credit" textFill="WHITE">
+      <Label layoutX="319.0" layoutY="56.0" prefHeight="67.0" prefWidth="167.0" text="Credit" textFill="WHITE">
          <font>
             <Font size="55.0" />
          </font>

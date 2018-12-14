@@ -1,4 +1,4 @@
-package application;
+package sceneController;
 
 import java.io.IOException;
 import java.net.URL;
