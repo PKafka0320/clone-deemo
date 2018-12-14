@@ -2,24 +2,24 @@
 
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#KeyboardInput" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane fx:id="main" opacity="1.00" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../asset/image/background.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Songs" fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="165.0" onKeyPressed="#KeyboardInput" onMousePressed="#SongsPressed" onMouseReleased="#SongsReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Songs" fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="165.0" onMouseClicked="#SongsPressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../asset/image/SongsButton.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Option" fitHeight="150.0" fitWidth="200.0" layoutX="525.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Option" fitHeight="150.0" fitWidth="200.0" layoutX="525.0" layoutY="165.0" onMouseClicked="#OptionPressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../asset/image/OptionButton.png" />
          </image>
       </ImageView>
    </children>
-</Pane>
+</AnchorPane>
