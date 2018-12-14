@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="SongList" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SongListController">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asset/image/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Song" fitHeight="220.0" fitWidth="230.0" layoutX="290.0" layoutY="130.0" onMouseClicked="#SelectSong" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asset/image/Suspensful_Third_day_mini.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="101.0" layoutX="710.0" layoutY="382.0" onMouseClicked="#BackToMain" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asset/image/BackToMain.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
