@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Option" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.OptionController">
+   <children>
+      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="319.0" layoutY="56.0" prefHeight="67.0" prefWidth="167.0" text="Credit" textFill="WHITE">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="98.0" fitWidth="101.0" layoutX="710.0" layoutY="382.0" onMouseClicked="#BackToMain" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/BackToMain.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="67.0" layoutY="181.0" prefHeight="92.0" prefWidth="305.0" text="김재훈">
+         <font>
+            <Font size="96.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label layoutX="426.0" layoutY="181.0" prefHeight="92.0" prefWidth="305.0" text="최성환">
+         <font>
+            <Font size="96.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

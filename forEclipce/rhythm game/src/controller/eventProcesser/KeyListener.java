@@ -2,11 +2,11 @@ package eventProcesser;
 
 import java.util.ArrayList;
 
-import etc.GameInputFormat;
+import format.GameInputFormat;
+import gameController.GameLoopController;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import mainController.GameLoopController;
 
 public class KeyListener {
 	Scene theScene;

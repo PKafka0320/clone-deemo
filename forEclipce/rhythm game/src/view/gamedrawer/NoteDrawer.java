@@ -2,12 +2,12 @@ package gamedrawer;
 
 import java.util.ArrayList;
 
+import calculater.NotePositionCalc;
+import format.NoteFormat;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import note.NoteFormat;
-import noteController.NotePositionCalc;
 
 public class NoteDrawer {
 	public ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();

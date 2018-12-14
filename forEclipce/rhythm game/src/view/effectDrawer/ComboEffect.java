@@ -1,6 +1,6 @@
 package effectDrawer;
 
-import etc.CollisionTypeFormat;
+import format.CollisionTypeFormat;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;

@@ -1,8 +1,8 @@
 package gamedrawer;
 
 import effectDrawer.ComboEffect;
-import etc.CollisionTypeFormat;
-import etc.ScoreFormat;
+import format.CollisionTypeFormat;
+import format.ScoreFormat;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
