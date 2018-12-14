@@ -1,4 +1,4 @@
-package noteController;
+package eventProcesser;
 
 import format.CollisionTypeFormat;
 import format.GameInputFormat;

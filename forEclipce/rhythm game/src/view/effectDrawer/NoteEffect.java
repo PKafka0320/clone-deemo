@@ -1,13 +1,13 @@
 package effectDrawer;
 
 
+import calculater.NotePositionCalc;
 import format.CollisionTypeFormat;
 import format.NoteFormat;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.paint.Color;
-import noteController.NotePositionCalc;
 
 public class NoteEffect extends AnimationTimer{
 	public static double effectDuration = 0.7;

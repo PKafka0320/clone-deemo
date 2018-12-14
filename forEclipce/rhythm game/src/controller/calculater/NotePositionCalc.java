@@ -1,4 +1,4 @@
-package noteController;
+package calculater;
 
 import format.NoteFormat;
 

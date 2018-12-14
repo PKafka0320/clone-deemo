@@ -1,8 +1,8 @@
 package tester;
 
+import gameController.GameLoopController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import mainController.GameLoopController;
 
 public class GameLoopTester extends Application {
 

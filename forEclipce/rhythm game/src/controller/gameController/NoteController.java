@@ -1,16 +1,17 @@
-package noteController;
+package gameController;
 
 import java.util.ArrayList;
 import java.util.Queue;
 
+import calculater.NotePositionCalc;
 import effectDrawer.NoteEffect;
+import eventProcesser.CollisionChecker;
 import eventProcesser.KeyListener;
 import format.CollisionTypeFormat;
 import format.GameInputFormat;
 import format.NoteFormat;
 import javafx.scene.canvas.GraphicsContext;
 import reader.NoteReader;
-import scoreController.ScoreController;
 
 public class NoteController {
 	private ScoreController scoreController;

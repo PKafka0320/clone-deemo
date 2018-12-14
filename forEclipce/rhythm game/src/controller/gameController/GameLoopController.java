@@ -1,7 +1,8 @@
-package mainController;
+package gameController;
 
 import java.io.File;
 
+import calculater.ScoreCalc;
 import eventProcesser.KeyListener;
 import eventProcesser.SceneChanger;
 import gamedrawer.GameDrawer;
@@ -11,9 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
-import noteController.NoteController;
-import scoreController.ScoreCalc;
-import scoreController.ScoreController;
 
 public class GameLoopController {
 	SceneChanger sceneChanger = new SceneChanger();

@@ -1,4 +1,4 @@
-package scoreController;
+package calculater;
 
 import format.CollisionTypeFormat;
 import format.ScoreFormat;

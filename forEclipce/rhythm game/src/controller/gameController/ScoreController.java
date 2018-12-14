@@ -1,7 +1,8 @@
-package scoreController;
+package gameController;
 
 import java.util.ArrayList;
 
+import calculater.ScoreCalc;
 import format.CollisionTypeFormat;
 import format.ScoreFormat;
 import gamedrawer.ScoreDrawer;
