@@ -1,4 +1,4 @@
-package etc;
+package format;
 
 public class ScoreFormat {
 	private double score;

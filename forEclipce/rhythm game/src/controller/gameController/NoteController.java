@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 import effectDrawer.NoteEffect;
-import etc.CollisionTypeFormat;
-import etc.GameInputFormat;
 import eventProcesser.KeyListener;
+import format.CollisionTypeFormat;
+import format.GameInputFormat;
+import format.NoteFormat;
 import javafx.scene.canvas.GraphicsContext;
-import note.NoteFormat;
-import note.NoteReader;
+import reader.NoteReader;
 import scoreController.ScoreController;
 
 public class NoteController {

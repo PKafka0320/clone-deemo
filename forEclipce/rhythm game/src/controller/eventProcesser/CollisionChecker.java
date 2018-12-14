@@ -1,8 +1,8 @@
 package noteController;
 
-import etc.CollisionTypeFormat;
-import etc.GameInputFormat;
-import note.NoteFormat;
+import format.CollisionTypeFormat;
+import format.GameInputFormat;
+import format.NoteFormat;
 
 //노트 판정을 체크해주는 매서드
 public class CollisionChecker {

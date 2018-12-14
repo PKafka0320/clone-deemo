@@ -2,8 +2,8 @@ package scoreController;
 
 import java.util.ArrayList;
 
-import etc.CollisionTypeFormat;
-import etc.ScoreFormat;
+import format.CollisionTypeFormat;
+import format.ScoreFormat;
 import gamedrawer.ScoreDrawer;
 
 //점수는 bad이상일때 오름

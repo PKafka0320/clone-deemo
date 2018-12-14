@@ -1,6 +1,8 @@
-package note;
+package reader;
 
 import java.util.Scanner;
+
+import format.NoteFormat;
 
 import java.io.File;
 import java.io.FileNotFoundException;

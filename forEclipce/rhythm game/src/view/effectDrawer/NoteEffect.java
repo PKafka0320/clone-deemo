@@ -1,12 +1,12 @@
 package effectDrawer;
 
 
-import etc.CollisionTypeFormat;
+import format.CollisionTypeFormat;
+import format.NoteFormat;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.paint.Color;
-import note.NoteFormat;
 import noteController.NotePositionCalc;
 
 public class NoteEffect extends AnimationTimer{

@@ -2,11 +2,11 @@ package gamedrawer;
 
 import java.util.ArrayList;
 
-import etc.ScoreFormat;
+import format.NoteFormat;
+import format.ScoreFormat;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import note.NoteFormat;
 
 public class GameDrawer {
 	private Canvas gameScreen = new Canvas(800, 480);

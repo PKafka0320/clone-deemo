@@ -1,6 +1,4 @@
-package note;
-
-import etc.GameInputFormat;
+package format;
 
 public class NoteFormat {
 	int line;

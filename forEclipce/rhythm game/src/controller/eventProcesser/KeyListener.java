@@ -2,7 +2,7 @@ package eventProcesser;
 
 import java.util.ArrayList;
 
-import etc.GameInputFormat;
+import format.GameInputFormat;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;

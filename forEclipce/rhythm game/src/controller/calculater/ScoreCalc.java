@@ -1,7 +1,7 @@
 package scoreController;
 
-import etc.CollisionTypeFormat;
-import etc.ScoreFormat;
+import format.CollisionTypeFormat;
+import format.ScoreFormat;
 
 //점수는 각 노트의 판정에 따라 차등적으로 올라감
 public class ScoreCalc {

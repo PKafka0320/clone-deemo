@@ -1,6 +1,6 @@
 package noteController;
 
-import note.NoteFormat;
+import format.NoteFormat;
 
 public class NotePositionCalc {
 	private double droptime = 2;
