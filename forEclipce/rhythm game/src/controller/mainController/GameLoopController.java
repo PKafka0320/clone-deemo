@@ -3,6 +3,7 @@ package mainController;
 import java.io.File;
 
 import eventProcesser.KeyListener;
+import eventProcesser.SceneChanger;
 import gamedrawer.GameDrawer;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
@@ -15,6 +16,7 @@ import scoreController.ScoreCalc;
 import scoreController.ScoreController;
 
 public class GameLoopController {
+	SceneChanger sceneChanger = new SceneChanger();
 	private Group gameComponents = new Group();
 	private Scene gameScene = new Scene(gameComponents, 800, 480);
 
@@ -32,7 +34,8 @@ public class GameLoopController {
 		gameComponents.getChildren().add(gameDrawer.getCanvas());
 
 		File file = new File(System.getProperty("user.dir") + "/asset/music/soundtrack/" + musicName + ".mp3");
-		Media music = new Media(file.toURI().toString());
+		String filePath = file.toURI().toString();
+		Media music = new Media(filePath);
 		musicPlayer = new MediaPlayer(music);
 		noteController.setNotes(noteName);
 		scoreController.setScoreCalc(new ScoreCalc(noteController.noteAmount));
@@ -41,9 +44,11 @@ public class GameLoopController {
 			double currentTime;
 
 			public void start() {
-
+				System.out.println("Song Started");
+				gameDrawer.getCanvas().setOpacity(0);
+				sceneChanger.fadeIn(gameDrawer.getCanvas());
 				startNanoTime = System.nanoTime();
-
+				
 				super.start();
 			}
 
