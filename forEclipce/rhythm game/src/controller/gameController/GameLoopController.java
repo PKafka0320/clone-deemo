@@ -55,7 +55,6 @@ public class GameLoopController {
 				super.start();
 			}
 
-			// ���� �̺�Ʈ�� ó���ϰ� ȭ�鿡 �׷��ִ� ����
 			public void handle(long currentNanoTime) {
 				this.currentTime = ((currentNanoTime - startNanoTime) / 1000000000.0) - delayedTime;
 				if (currentTime > -1 && !(musicPlayer.getStatus() == Status.PLAYING)) {
