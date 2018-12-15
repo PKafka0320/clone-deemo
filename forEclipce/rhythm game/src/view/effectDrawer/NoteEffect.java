@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 public class NoteEffect extends AnimationTimer{
 	public static double effectDuration = 0.7;
 	
-	NotePositionCalc npCalc = new NotePositionCalc();
+	NotePositionCalc npCalc = new NotePositionCalc(2);
 	private GraphicsContext gc;
 	public boolean isStop = true;
 	
