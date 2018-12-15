@@ -16,7 +16,7 @@ public class ComboEffect extends AnimationTimer{
 	private double currentTime;
 
 	private Font comboFont = Font.loadFont("file:./asset/font/JUNGJ___.TTF", 120);
-	private Font typeFont = Font.loadFont("file:./asset/font/rocknroll_typo_bevel.TTF", 25);
+	private Font typeFont = Font.loadFont("file:./asset/font/FANTIQUE.TTF", 40);
 	
 	public int combo;
 	public CollisionTypeFormat collisionType;
@@ -52,7 +52,7 @@ public class ComboEffect extends AnimationTimer{
 		gc.setFont(comboFont);
 		gc.fillText(combo+"", 700, 230);
 		gc.setFont(typeFont);
-		gc.fillText(collisionType.getCollisionType(), 700, 240);
+		gc.fillText(collisionType.getCollisionType(), 670, 240);
 		gc.setFill(Color.BLACK);
 		
 		if(currentTime > effectDuration) {

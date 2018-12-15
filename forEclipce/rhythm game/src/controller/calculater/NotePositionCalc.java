@@ -19,7 +19,6 @@ public class NotePositionCalc {
 	double indicesForSizeX = (Math.log(this.initSizeX / (this.initSizeX / multiple)) / droptime);
 	double indicesForSizeY = (Math.log(this.initSizeY / (this.initSizeY / multiple)) / droptime);
 
-	double locationX;
 	double locationY = startLocationY;
 
 	public NotePositionCalc() {
