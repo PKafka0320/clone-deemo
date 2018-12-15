@@ -5,8 +5,8 @@ import format.NoteFormat;
 public class NotePositionCalc {
 	private double dropTime = 2;
 
-	// 30 -> 100, 4 -> 20 / 10/3��, ����� ���
-	double multiple = 10.0 / 1.0; // ���
+	// 30 -> 100, 4 -> 20 / 10/3占쏙옙, 占쏙옙占쏙옙占� 占쏙옙占�
+	double multiple = 10.0 / 1.0; // 占쏙옙占�
 	private double initSizeX = 100.0;
 	double initSizeY = 10.0;
 
@@ -95,17 +95,17 @@ public class NotePositionCalc {
 
 	public double getLocationY(double currentTime, NoteFormat note) {
 //		0 ~ 380
-//		5�� ~ 0��
+//		5占쏙옙 ~ 0占쏙옙
 //		(dropTime - cTime)/5 = 0 ~ 1
 //		((dropTime - cTime)/5)*380
 //		50 + (0~380) = 430
-//		����a(t)+b
+//		占쏙옙占쏙옙a(t)+b
 //		double cTime = this.timing-currentTime;
 //		double dY = (( ( this.droptime - cTime )/this.droptime)*410.0);
 //		e^at + b
 		double cTime = dropTime - (note.getTiming() - currentTime);
 		double dY = this.startLocationY * (Math.pow(Math.E, this.indicesForY * cTime));
-//		���ӵ�
+//		占쏙옙占쌈듸옙
 //		double cTime = this.timing-currentTime;
 //		double dt = ( this.droptime - cTime - this.droptime/2 )/(this.droptime/2)-1;
 //		double dY = ( ( this.droptime - cTime )/this.droptime)*410.0;

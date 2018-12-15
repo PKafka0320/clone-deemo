@@ -2,36 +2,42 @@ package gameController;
 
 import java.io.File;
 
+import calculater.NotePositionCalc;
 import calculater.ScoreCalc;
 import eventProcesser.KeyListener;
 import eventProcesser.SceneChanger;
 import gamedrawer.GameDrawer;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import reader.SettingReader;
 
 public class GameLoopController {
-	SceneChanger sceneChanger = new SceneChanger();
-	private Group gameComponents = new Group();
-	private Scene gameScene = new Scene(gameComponents, 800, 480);
+	private SceneChanger sceneChanger = new SceneChanger();
+	
+	private AnchorPane gamePane = new AnchorPane();
+	
+	private Scene gameScene = new Scene(gamePane, 800, 480);
 
 	private AnimationTimer gameLoop;
 	private KeyListener kListener = new KeyListener(this);
-	private GameDrawer gameDrawer = new GameDrawer();
+	private NotePositionCalc npCalc = new NotePositionCalc();
+	private GameDrawer gameDrawer = new GameDrawer(npCalc);
 	private ScoreController scoreController = new ScoreController(gameDrawer.scoreDrawer);
-	private NoteController noteController = new NoteController(kListener, scoreController, gameDrawer.getGc());
-	static MediaPlayer musicPlayer;
+	private NoteController noteController = new NoteController(kListener, scoreController, gameDrawer.getGc(), npCalc);
+	private MediaPlayer musicPlayer;
 	private SettingReader settingReader = new SettingReader();
 
-	public double startNanoTime;
-	public double delayedTime = 6.0;
+	private double startNanoTime;
+	private double delayedTime = 6.0;
+	private double endDelayTime = 5.0;
+	private double endTimerTime = 0;
 
 	public GameLoopController(String musicName, String noteName) {
-		gameComponents.getChildren().add(gameDrawer.getCanvas());
+		gamePane.getChildren().add(gameDrawer.getCanvas());
 
 		File file = new File(System.getProperty("user.dir") + "/asset/music/soundtrack/" + musicName + ".mp3");
 		String filePath = file.toURI().toString();
@@ -46,15 +52,24 @@ public class GameLoopController {
 		this.gameLoop = new AnimationTimer() {
 			double currentTime;
 
+			@Override
 			public void start() {
 				System.out.println("Song Started");
-				gameDrawer.getCanvas().setOpacity(0);
-				sceneChanger.fadeIn(gameDrawer.getCanvas());
+				gamePane.setOpacity(0);
+				sceneChanger.fadeIn(gamePane);
 				startNanoTime = System.nanoTime();
 
 				super.start();
 			}
+			
+			@Override
+			public void stop() {
+//				sceneChanger.fadeOut(node, currentScene, fxmlFileName);
+				
+				super.stop();
+			}
 
+			@Override
 			public void handle(long currentNanoTime) {
 				this.currentTime = ((currentNanoTime - startNanoTime) / 1000000000.0) - delayedTime;
 				if (currentTime > -1 && !(musicPlayer.getStatus() == Status.PLAYING)) {
@@ -62,7 +77,14 @@ public class GameLoopController {
 				}
 
 				if (!noteController.update(this.currentTime)) {
-//					super.stop();
+					if(endTimerTime == 0) {
+						endTimerTime = System.nanoTime();
+					}
+					else {
+						if(endDelayTime < ((currentNanoTime-endTimerTime)/1000000000.0)) {
+							this.stop();
+						}
+					}
 				}
 
 				gameDrawer.draw(this.currentTime, noteController.getNoteOnScreen(), scoreController.getScoreFormat());
@@ -73,6 +95,14 @@ public class GameLoopController {
 
 	public Scene getScene() {
 		return gameScene;
+	}
+
+	public double getStartNanoTime() {
+		return startNanoTime;
+	}
+
+	public double getDelayedTime() {
+		return delayedTime;
 	}
 
 	public void start() {

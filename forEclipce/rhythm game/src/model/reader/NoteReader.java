@@ -16,7 +16,7 @@ public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
 	
-	private double sync = 350;
+	private double sync = 550;
 
 	String filePath;
 
@@ -52,6 +52,7 @@ public class NoteReader {
 	}
 	
 	public void setSync(double sync) {
-		this.sync = 350 + (int) (10 * sync);
+		this.sync = this.sync + (int) (10 * sync);
+		System.out.println(this.sync);
 	}
 }

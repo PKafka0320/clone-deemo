@@ -14,13 +14,14 @@ public class NoteDrawer {
 	public ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	
 	private GraphicsContext gc;
-	private NotePositionCalc npCalc = new NotePositionCalc();
+	private NotePositionCalc npCalc;
 	private SettingReader settingReader = new SettingReader();
 	DropShadow shadowEffect = new DropShadow();
 	
 	private Image noteImage = new Image( "file:./asset/image/note2.png" );
 	
-	public NoteDrawer(GraphicsContext gc) {
+	public NoteDrawer(GraphicsContext gc, NotePositionCalc npCalc) {
+		this.npCalc = npCalc;
 		this.gc = gc;
 		shadowEffect.setColor(javafx.scene.paint.Color.rgb(255, 255, 255, 1));
 		shadowEffect.setSpread(0.3);

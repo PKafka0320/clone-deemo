@@ -2,6 +2,7 @@ package gamedrawer;
 
 import java.util.ArrayList;
 
+import calculater.NotePositionCalc;
 import format.NoteFormat;
 import format.ScoreFormat;
 import javafx.scene.canvas.Canvas;
@@ -12,12 +13,13 @@ public class GameDrawer {
 	private Canvas gameScreen = new Canvas(800, 480);
 	private GraphicsContext gc = gameScreen.getGraphicsContext2D();
 
-	public NoteDrawer noteDrawer = new NoteDrawer(gc);
+	public NoteDrawer noteDrawer;
 	public ScoreDrawer scoreDrawer = new ScoreDrawer(gc);
 	private Image background = new Image("file:./asset/image/background4.png");
 	private Image cover = new Image("file:./asset/image/cover2.png");
 
-	public GameDrawer() {
+	public GameDrawer(NotePositionCalc npCalc) {
+		noteDrawer = new NoteDrawer(gc, npCalc);
 	}
 
 	public Canvas getCanvas() {

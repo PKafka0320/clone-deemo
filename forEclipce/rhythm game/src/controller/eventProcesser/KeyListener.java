@@ -27,8 +27,8 @@ public class KeyListener {
 			public void handle(KeyEvent e) {
 				String code = e.getCode().toString();
 				if (GameInputFormat.getAvailableInputList().contains(code)) {
-					double currentTime = (System.nanoTime() - glController.startNanoTime) / 1000000000.0
-							- glController.delayedTime;
+					double currentTime = (System.nanoTime() - glController.getStartNanoTime()) / 1000000000.0
+							- glController.getDelayedTime();
 					gameInput = new GameInputFormat(code, currentTime);
 					gameInputChecker = new GameInputFormat(code);
 					String line = "" + gameInputChecker.getLine();
