@@ -15,7 +15,6 @@ import java.nio.file.Paths;
 public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
-	private SettingReader settingReader = new SettingReader();
 	
 	private double sync = 350;
 

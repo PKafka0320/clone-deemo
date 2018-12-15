@@ -5,8 +5,8 @@ import format.NoteFormat;
 public class NotePositionCalc {
 	private double dropTime = 2;
 
-	// 30 -> 100, 4 -> 20 / 10/3¹è, ¹è¼ö·Î °è»ê
-	double multiple = 10.0 / 1.0; // ¹è¼ö
+	// 30 -> 100, 4 -> 20 / 10/3ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	double multiple = 10.0 / 1.0; // ï¿½ï¿½ï¿½
 	private double initSizeX = 100.0;
 	double initSizeY = 10.0;
 
@@ -95,17 +95,17 @@ public class NotePositionCalc {
 
 	public double getLocationY(double currentTime, NoteFormat note) {
 //		0 ~ 380
-//		5ÃÊ ~ 0ÃÊ
+//		5ï¿½ï¿½ ~ 0ï¿½ï¿½
 //		(dropTime - cTime)/5 = 0 ~ 1
 //		((dropTime - cTime)/5)*380
 //		50 + (0~380) = 430
-//		¼±Çüa(t)+b
+//		ï¿½ï¿½ï¿½ï¿½a(t)+b
 //		double cTime = this.timing-currentTime;
 //		double dY = (( ( this.droptime - cTime )/this.droptime)*410.0);
 //		e^at + b
 		double cTime = dropTime - (note.getTiming() - currentTime);
 		double dY = this.startLocationY * (Math.pow(Math.E, this.indicesForY * cTime));
-//		°¡¼Óµµ
+//		ï¿½ï¿½ï¿½Óµï¿½
 //		double cTime = this.timing-currentTime;
 //		double dt = ( this.droptime - cTime - this.droptime/2 )/(this.droptime/2)-1;
 //		double dY = ( ( this.droptime - cTime )/this.droptime)*410.0;
@@ -131,5 +131,4 @@ public class NotePositionCalc {
 		indicesForSizeX = (Math.log(this.initSizeX / (this.initSizeX / multiple)) / dropTime);
 		indicesForSizeY = (Math.log(this.initSizeY / (this.initSizeY / multiple)) / dropTime);
 	}
-
 }
