@@ -15,7 +15,7 @@ public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
 	
-	private double sink = 500;
+	private double sink = 350;
 
 	String filePath;
 
