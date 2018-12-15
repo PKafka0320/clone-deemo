@@ -54,7 +54,7 @@ public class resultController implements Initializable {
 
     @FXML
     private Label score;
-
+    
     @FXML
     void BackToMain(KeyEvent event) {
 		System.out.println("Back to Main");

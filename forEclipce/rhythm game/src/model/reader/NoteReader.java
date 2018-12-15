@@ -16,7 +16,7 @@ public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
 	
-	private double sync = 550;
+	private double sync = 350;
 
 	String filePath;
 
