@@ -60,7 +60,7 @@ public class ScoreFormat {
 	}
 	
 	public void addPerfectHit() {
-		this.perfectHit++;
+		this.perfectHit += 1;
 	}
 	
 	public void resetCombo() {

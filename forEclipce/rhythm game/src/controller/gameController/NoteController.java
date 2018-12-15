@@ -24,7 +24,7 @@ public class NoteController {
 	private GraphicsContext gc;
 	private SettingReader settingReader = new SettingReader();
 
-	Queue<NoteFormat> notes;
+	private Queue<NoteFormat> notes;
 	public int noteAmount;
 	ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	double startTime;

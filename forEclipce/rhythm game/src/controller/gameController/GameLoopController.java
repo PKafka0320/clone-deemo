@@ -1,6 +1,7 @@
 package gameController;
 
 import java.io.File;
+import java.io.IOException;
 
 import calculater.NotePositionCalc;
 import calculater.ScoreCalc;
@@ -13,7 +14,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
+import reader.ScoreReader;
 import reader.SettingReader;
+import reader.SongValueReader;
 
 public class GameLoopController {
 	private SceneChanger sceneChanger = new SceneChanger();
@@ -30,20 +33,22 @@ public class GameLoopController {
 	private NoteController noteController = new NoteController(kListener, scoreController, gameDrawer.getGc(), npCalc);
 	private MediaPlayer musicPlayer;
 	private SettingReader settingReader = new SettingReader();
+	private SongValueReader songValueReader = new SongValueReader();
+	private ScoreReader scoreReader = new ScoreReader();
 
 	private double startNanoTime;
 	private double delayedTime = 6.0;
-	private double endDelayTime = 5.0;
+	private double endDelayTime = 3.0;
 	private double endTimerTime = 0;
 
-	public GameLoopController(String musicName, String noteName) {
+	public GameLoopController(String musicName) {
 		gamePane.getChildren().add(gameDrawer.getCanvas());
 
 		File file = new File(System.getProperty("user.dir") + "/asset/music/soundtrack/" + musicName + ".mp3");
 		String filePath = file.toURI().toString();
 		Media music = new Media(filePath);
 		musicPlayer = new MediaPlayer(music);
-		noteController.setNotes(noteName);
+		noteController.setNotes(musicName);
 		scoreController.setScoreCalc(new ScoreCalc(noteController.noteAmount));
 		
 		double[] settingValues = settingReader.readSetting();
@@ -64,7 +69,13 @@ public class GameLoopController {
 			
 			@Override
 			public void stop() {
-//				sceneChanger.fadeOut(node, currentScene, fxmlFileName);
+				try {
+					scoreReader.writeScore(musicName, scoreController.getScoreFormat());
+					songValueReader.writeSongValue(musicName, noteController.noteAmount);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				sceneChanger.fadeOut(gamePane, gameScene, "result");
 				
 				super.stop();
 			}

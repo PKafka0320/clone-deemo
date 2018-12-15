@@ -8,7 +8,6 @@ import gameController.GameLoopController;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -23,15 +22,15 @@ public class SceneChanger {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void fadeIn(Node node) {
-		ft.setNode(node);
+	public void fadeIn(AnchorPane pane) {
+		ft.setNode(pane);
 		ft.setFromValue(0);
 		ft.setToValue(1);
 		ft.play();
 	}
 	
-	public void fadeOut(Node node, Scene currentScene, String fxmlFileName) {
-		ft.setNode(node);
+	public void fadeOut(AnchorPane pane, Scene currentScene, String fxmlFileName) {
+		ft.setNode(pane);
 		ft.setFromValue(1);
 		ft.setToValue(0);
 		
@@ -46,8 +45,8 @@ public class SceneChanger {
 		ft.play();
 	}
 	
-	public void fadeOut(Node node, Scene currentScene, GameLoopController glController) {
-		ft.setNode(node);
+	public void fadeOut(AnchorPane pane, Scene currentScene, GameLoopController glController) {
+		ft.setNode(pane);
 		ft.setFromValue(1);
 		ft.setToValue(0);
 		
