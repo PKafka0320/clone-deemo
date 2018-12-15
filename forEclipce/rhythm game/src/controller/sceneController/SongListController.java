@@ -34,7 +34,7 @@ public class SongListController implements Initializable {
 	@FXML
 	void SelectSong(MouseEvent event) {
 		System.out.println("Song Selected");
-		glController = new GameLoopController("music1", "SuspensefulThirdDay");
+		glController = new GameLoopController("SuspensefulThirdDay", "SuspensefulThirdDay");
 		sceneChanger.fadeOut(SongList, SongList.getScene(), glController);
 	}
 
