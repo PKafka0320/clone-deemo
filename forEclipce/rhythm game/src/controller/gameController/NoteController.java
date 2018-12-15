@@ -18,7 +18,7 @@ import reader.SettingReader;
 public class NoteController {
 	private ScoreController scoreController;
 	private CollisionChecker cc = new CollisionChecker(new double[] { 0.2, 0.12, 0.08 });
-	private NotePositionCalc npCalc = new NotePositionCalc(1);
+	private NotePositionCalc npCalcForEffect = new NotePositionCalc(2);
 	private NoteReader nReader = new NoteReader();
 	private KeyListener kListener;
 	private GraphicsContext gc;
@@ -79,7 +79,7 @@ public class NoteController {
 						scoreController.update(collisionType, currentTime);
 //						System.out.println(collisionType);
 //						System.out.println(scoreController.getScoreFormat());
-						new NoteEffect(gc, currentNote.getLine(), collisionType).start();
+						new NoteEffect(npCalcForEffect, gc, currentNote.getLine(), collisionType).start();
 
 						this.notesOnScreen.remove(currentNote);
 						index2--;
@@ -103,7 +103,7 @@ public class NoteController {
 		int i = 0;
 		while (!(notesOnScreen.size() == i)) {
 			NoteFormat currentNote = notesOnScreen.get(i);
-			CollisionTypeFormat collisionType = cc.checkIsOut(currentNote, currentTime, npCalc.getDroptime());
+			CollisionTypeFormat collisionType = cc.checkIsOut(currentNote, currentTime, npCalcForEffect.getDroptime());
 			if (collisionType.getCollisionType() == CollisionTypeFormat.getMissType()) {
 				notesOnScreen.remove(i);
 				scoreController.update(collisionType, currentTime);
@@ -148,7 +148,7 @@ public class NoteController {
 
 		else {
 //			System.out.println(notes.peek());
-			if (!(this.notes.isEmpty()) && this.npCalc.isOnScreen(currentTime, notes.peek())) {
+			if (!(this.notes.isEmpty()) && this.npCalcForEffect.isOnScreen(currentTime, notes.peek())) {
 				this.addDrawableNote(notes.poll());
 			}
 

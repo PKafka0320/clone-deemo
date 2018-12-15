@@ -51,7 +51,7 @@ public class GameLoopController {
 				gameDrawer.getCanvas().setOpacity(0);
 				sceneChanger.fadeIn(gameDrawer.getCanvas());
 				startNanoTime = System.nanoTime();
-				
+
 				super.start();
 			}
 

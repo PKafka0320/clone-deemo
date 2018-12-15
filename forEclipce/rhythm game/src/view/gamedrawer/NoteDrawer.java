@@ -13,7 +13,7 @@ public class NoteDrawer {
 	public ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	
 	private GraphicsContext gc;
-	private NotePositionCalc npCalc = new NotePositionCalc();
+	private NotePositionCalc npCalc = new NotePositionCalc(1);
 	DropShadow shadowEffect = new DropShadow();
 	
 	private Image noteImage = new Image( "file:./asset/image/note2.png" );

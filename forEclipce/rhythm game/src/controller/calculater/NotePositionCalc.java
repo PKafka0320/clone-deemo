@@ -3,7 +3,7 @@ package calculater;
 import format.NoteFormat;
 
 public class NotePositionCalc {
-	private double droptime = 2;
+	private double dropTime = 2;
 
 	// 30 -> 100, 4 -> 20 / 10/3배, 배수로 계산
 	double multiple = 10.0 / 1.0; // 배수
@@ -15,16 +15,23 @@ public class NotePositionCalc {
 
 	final double startLocationY = 30.0;
 
-	double indicesForY = (Math.log(430 / this.startLocationY) / droptime);
-	double indicesForSizeX = (Math.log(this.initSizeX / (this.initSizeX / multiple)) / droptime);
-	double indicesForSizeY = (Math.log(this.initSizeY / (this.initSizeY / multiple)) / droptime);
+	double indicesForY;
+	double indicesForSizeX;
+	double indicesForSizeY;
 
 	double locationY = startLocationY;
 
 	public NotePositionCalc() {
+		indicesForY = (Math.log(430 / this.startLocationY) / dropTime);
+		indicesForSizeX = (Math.log(this.initSizeX / (this.initSizeX / multiple)) / dropTime);
+		indicesForSizeY = (Math.log(this.initSizeY / (this.initSizeY / multiple)) / dropTime);
 	}
+
 	public NotePositionCalc(double dropTime) {
-		this.droptime = dropTime;
+		this.dropTime = dropTime;
+		indicesForY = (Math.log(430 / this.startLocationY) / dropTime);
+		indicesForSizeX = (Math.log(this.initSizeX / (this.initSizeX / multiple)) / dropTime);
+		indicesForSizeY = (Math.log(this.initSizeY / (this.initSizeY / multiple)) / dropTime);
 	}
 
 	public double[] getNotePosition(NoteFormat currentNote, double currentTime) {
@@ -42,7 +49,7 @@ public class NotePositionCalc {
 	}
 
 	public boolean isOnScreen(double currentTime, NoteFormat note) {
-		return !(note.getTiming() - 1 > currentTime + droptime);
+		return !(note.getTiming() - 1 > currentTime + dropTime);
 	}
 
 	public double getSizeX(double currentTime, NoteFormat note) {
@@ -50,7 +57,7 @@ public class NotePositionCalc {
 //		double dX = ( this.sizeX-( this.sizeX/this.multiple ) )/this.droptime;
 //		this.currentSizeX = this.sizeX - dX*cTime;
 //		return this.sizeX - dX*cTime;
-		double cTime = droptime - (note.getTiming() - currentTime);
+		double cTime = dropTime - (note.getTiming() - currentTime);
 		double dX = (this.initSizeX / this.multiple) * (Math.pow(Math.E, this.indicesForSizeX * cTime));
 		this.currentSizeX = dX;
 		return dX;
@@ -61,7 +68,7 @@ public class NotePositionCalc {
 //		double dY = ( this.sizeY-( this.sizeY/this.multiple ) )/this.droptime;
 //		this.currentSizeY = this.sizeY - dY*cTime;
 //		return this.sizeY - dY*cTime;
-		double cTime = droptime - (note.getTiming() - currentTime);
+		double cTime = dropTime - (note.getTiming() - currentTime);
 		double dY = (this.initSizeY / this.multiple) * (Math.pow(Math.E, this.indicesForSizeY * cTime));
 		this.currentSizeY = dY;
 		return dY;
@@ -96,7 +103,7 @@ public class NotePositionCalc {
 //		double cTime = this.timing-currentTime;
 //		double dY = (( ( this.droptime - cTime )/this.droptime)*410.0);
 //		e^at + b
-		double cTime = droptime - (note.getTiming() - currentTime);
+		double cTime = dropTime - (note.getTiming() - currentTime);
 		double dY = this.startLocationY * (Math.pow(Math.E, this.indicesForY * cTime));
 //		가속도
 //		double cTime = this.timing-currentTime;
@@ -115,11 +122,14 @@ public class NotePositionCalc {
 	}
 
 	public double getDroptime() {
-		return droptime;
+		return dropTime;
 	}
 
 	public void setDroptime(double droptime) {
-		this.droptime = droptime;
+		this.dropTime = droptime;
+		indicesForY = (Math.log(430 / this.startLocationY) / dropTime);
+		indicesForSizeX = (Math.log(this.initSizeX / (this.initSizeX / multiple)) / dropTime);
+		indicesForSizeY = (Math.log(this.initSizeY / (this.initSizeY / multiple)) / dropTime);
 	}
 
 }

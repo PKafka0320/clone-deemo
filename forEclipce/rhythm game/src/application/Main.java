@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	@Override
 	public void start(Stage main) throws IOException {
+		main.setResizable(false);
 		File file = new File(System.getProperty("user.dir") + "/asset/fxml/" + "main" + ".fxml");
 		String filePath = file.toURI().toString();
 		Parent root = FXMLLoader.load(new URL(filePath));

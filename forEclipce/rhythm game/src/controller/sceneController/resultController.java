@@ -10,10 +10,13 @@ import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import reader.ScoreReader;
 
 public class resultController implements Initializable {
 	
 	SceneChanger sceneChanger = new SceneChanger();
+	
+	ScoreReader scoreReader = new ScoreReader();
 
     @FXML
     private AnchorPane result;
@@ -50,6 +53,7 @@ public class resultController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		scoreReader.readScore(musicName);
 		result.setOpacity(0);
 		sceneChanger.fadeIn(result);
 	}
