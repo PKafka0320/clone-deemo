@@ -1,13 +1,8 @@
 package sceneController;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 import eventProcesser.SceneChanger;
 import javafx.beans.value.ChangeListener;
@@ -19,12 +14,13 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import reader.SettingReader;
 
 public class OptionController implements Initializable {
 	
-	SceneChanger sceneChanger = new SceneChanger();
+	private SceneChanger sceneChanger = new SceneChanger();
 	
-	private Scanner fileScan;
+	private SettingReader settingReader = new SettingReader();
 	
 	@Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -55,28 +51,11 @@ public class OptionController implements Initializable {
 			}
         });
     	
-    	try {
-    		File noteFile = new File(System.getProperty("user.dir") + "/asset/option/setting.txt");
-    		fileScan = new Scanner(noteFile);
 
-			while (fileScan.hasNextLine()) {
-				String[] settingName = fileScan.nextLine().split("#");
-				String value = settingName[1];
-				char[] check = settingName[0].toCharArray();
-				
-				if(check[0] == 'V') {
-					VolumeSlide.setValue(Double.valueOf(value));
-				}
-				if(check[0] == 'Y') {
-					SyncSlide.setValue(Double.valueOf(value));
-				}
-				if(check[0] == 'S') {
-					SpeedSlide.setValue(Double.valueOf(value));
-				}
-			}
-		} catch (FileNotFoundException e) {
-			System.out.println("file not found");
-		}
+    	double[] settingValues = settingReader.readSetting();
+    	VolumeSlide.setValue(settingValues[0]);
+    	SyncSlide.setValue(settingValues[1]);
+    	SpeedSlide.setValue(settingValues[2]);
     }
 
     @FXML
@@ -111,20 +90,10 @@ public class OptionController implements Initializable {
     
     @FXML
     private void optionSet(MouseEvent m)throws IOException {
-    	File file = new File(System.getProperty("user.dir") + "/asset/option/setting.txt");
-    	BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-    	
-    	if(file.isFile() && file.canWrite()) {
-    		String vValue = String.valueOf((int) VolumeSlide.getValue());
-    		String yValue = String.valueOf((int) SyncSlide.getValue());
-    		String sValue = String.valueOf((int) SpeedSlide.getValue());
-    		
-    		bw.write("V#" + vValue);
-    		bw.newLine();
-    		bw.write("Y#" + yValue);
-    		bw.newLine();
-    		bw.write("S#" + sValue);
-    		bw.close();
-    	}
+    	double[] settingValues = new double[3];
+    	settingValues[0] = VolumeSlide.getValue();
+    	settingValues[1] = SyncSlide.getValue();
+    	settingValues[2] = SpeedSlide.getValue();
+    	settingReader.writeSetting(settingValues);
     }
 }
