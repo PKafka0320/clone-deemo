@@ -11,11 +11,13 @@ import java.util.LinkedList;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
 public class NoteReader {
 	public Queue<NoteFormat> notes = new LinkedList<NoteFormat>();
 	private Scanner fileScan;
+	private SettingReader settingReader = new SettingReader();
 	
-	private double sink = 350;
+	private double sync = 350;
 
 	String filePath;
 
@@ -38,7 +40,7 @@ public class NoteReader {
 
 				for (int i = 0; i < 6; i++) {
 					if (Integer.parseInt(lineString[i]) == 1) {
-						notes.add( new NoteFormat(i + 1, Double.parseDouble(oneNote[1]) + sink) );
+						notes.add( new NoteFormat(i + 1, Double.parseDouble(oneNote[1]) + sync) );
 					}
 				}
 			}
@@ -48,5 +50,9 @@ public class NoteReader {
 			System.out.println("Fail to loading " + fileName + ".txt");
 			return null;
 		}
+	}
+	
+	public void setSync(double sync) {
+		this.sync = 350 + (int) (10 * sync);
 	}
 }

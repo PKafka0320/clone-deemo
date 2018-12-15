@@ -12,6 +12,8 @@ import format.GameInputFormat;
 import format.NoteFormat;
 import javafx.scene.canvas.GraphicsContext;
 import reader.NoteReader;
+import reader.SettingReader;
+
 
 public class NoteController {
 	private ScoreController scoreController;
@@ -20,6 +22,7 @@ public class NoteController {
 	private NoteReader nReader = new NoteReader();
 	private KeyListener kListener;
 	private GraphicsContext gc;
+	private SettingReader settingReader = new SettingReader();
 
 	Queue<NoteFormat> notes;
 	public int noteAmount;
@@ -30,6 +33,8 @@ public class NoteController {
 		this.kListener = kListener;
 		this.scoreController = scoreController;
 		this.gc = gc;
+		double[] settingValues = settingReader.readSetting();
+		this.nReader.setSync(settingValues[1]);
 	}
 
 	public void setStartTime(double startTime) {
