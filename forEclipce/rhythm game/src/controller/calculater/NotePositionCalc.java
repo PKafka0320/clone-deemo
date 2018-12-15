@@ -24,6 +24,9 @@ public class NotePositionCalc {
 
 	public NotePositionCalc() {
 	}
+	public NotePositionCalc(double dropTime) {
+		this.droptime = dropTime;
+	}
 
 	public double[] getNotePosition(NoteFormat currentNote, double currentTime) {
 		double sizeY = this.getSizeY(currentTime, currentNote);
