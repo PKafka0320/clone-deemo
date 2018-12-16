@@ -35,7 +35,7 @@
             <Font size="43.0" />
          </font>
       </Label>
-      <Slider fx:id="SyncSlide" layoutX="185.0" layoutY="232.0" max="5.0" min="-5.0" onMouseReleased="#optionSet" prefHeight="16.0" prefWidth="429.0" />
+      <Slider fx:id="SyncSlide" layoutX="185.0" layoutY="232.0" max="10.0" min="-10.0" onMouseReleased="#optionSet" prefHeight="16.0" prefWidth="429.0" />
       <Label fx:id="SyncValue" alignment="CENTER" layoutX="633.0" layoutY="214.0" prefHeight="16.0" prefWidth="132.0" text="0">
          <font>
             <Font size="43.0" />
