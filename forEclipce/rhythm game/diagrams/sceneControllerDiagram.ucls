@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.2" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.2" icons="true" automaticImage="GIF" always-add-relationships="true" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="sceneController.MainController" project="rhythm game" 
     file="/rhythm game/src/controller/sceneController/MainController.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1093" y="323"/>    
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="reader.ScoreReader" project="rhythm game" 
     file="/rhythm game/src/model/reader/ScoreReader.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="204" x="403" y="59"/>    
+    <position height="53" width="204" x="269" y="60"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -85,10 +85,10 @@
   <association id="10">    
     <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="11" name="sReader">        
-        <position height="18" width="51" x="507" y="133"/>      
+        <position height="18" width="51" x="449" y="130"/>      
       </attribute>      
       <multiplicity id="12" minimum="0" maximum="1">        
-        <position height="16" width="23" x="514" y="117"/>      
+        <position height="16" width="23" x="437" y="115"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
@@ -97,10 +97,10 @@
   <association id="13">    
     <end type="SOURCE" refId="3" navigable="false">      
       <attribute id="14" name="scoreReader">        
-        <position height="18" width="73" x="389" y="125"/>      
+        <position height="18" width="73" x="296" y="136"/>      
       </attribute>      
       <multiplicity id="15" minimum="0" maximum="1">        
-        <position height="16" width="23" x="447" y="110"/>      
+        <position height="16" width="23" x="344" y="119"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
