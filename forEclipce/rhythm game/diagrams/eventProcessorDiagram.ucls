@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.2" icons="true" automaticImage="GIF" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="eventProcesser.CollisionChecker" project="rhythm game" 
     file="/rhythm game/src/controller/eventProcesser/CollisionChecker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="400" y="178"/>    
+    <position height="-1" width="-1" x="755" y="471"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="eventProcesser.KeyListener" project="rhythm game" 
     file="/rhythm game/src/controller/eventProcesser/KeyListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="777" y="331"/>    
+    <position height="-1" width="-1" x="510" y="229"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="eventProcesser.SceneChanger" project="rhythm game" 
     file="/rhythm game/src/controller/eventProcesser/SceneChanger.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="428" y="450"/>    
+    <position height="-1" width="-1" x="399" y="474"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="gameController.NoteController" project="rhythm game" 
     file="/rhythm game/src/controller/gameController/NoteController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="232" x="684" y="16"/>    
+    <position height="53" width="161" x="717" y="202"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="gameController.GameLoopController" project="rhythm game" 
     file="/rhythm game/src/controller/gameController/GameLoopController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="205" x="659" y="597"/>    
+    <position height="53" width="151" x="13" y="329"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="format.GameInputFormat" project="rhythm game" 
     file="/rhythm game/src/model/format/GameInputFormat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="221" x="1105" y="303"/>    
+    <position height="53" width="221" x="8" y="206"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="sceneController.MainController" project="rhythm game" 
     file="/rhythm game/src/controller/sceneController/MainController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="147" x="34" y="295"/>    
+    <position height="53" width="147" x="9" y="394"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="sceneController.resultController" project="rhythm game" 
     file="/rhythm game/src/controller/sceneController/resultController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="145" x="30" y="435"/>    
+    <position height="53" width="145" x="10" y="461"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="sceneController.SongListController" project="rhythm game" 
     file="/rhythm game/src/controller/sceneController/SongListController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="53" width="163" x="33" y="581"/>    
+    <position height="53" width="144" x="9" y="526"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -83,99 +83,126 @@
     </display>  
   </class>  
   <association id="10">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="11" name="sceneChanger">        
-        <position height="18" width="81" x="187" y="516"/>      
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="11" name="kListener">        
+        <position height="0" width="0" x="-267" y="-102"/>      
       </attribute>      
       <multiplicity id="12" minimum="0" maximum="1">        
-        <position height="16" width="23" x="254" y="544"/>      
+        <position height="0" width="0" x="-267" y="-102"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="13">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="14" name="sceneChanger">        
+        <position height="18" width="81" x="163" y="486"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="1">        
+        <position height="16" width="23" x="218" y="466"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="13">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="14" name="cc"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="16">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="17" name="gameInputChecker"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="17" name="sceneChanger">        
+        <position height="18" width="79" x="171" y="376"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-29" y="24"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="19">    
-    <bendpoint x="1019" y="394"/>    
+    <bendpoint x="318" y="205"/>    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="20" name="gameInputList">        
-        <position height="18" width="76" x="1063" y="381"/>      
+      <attribute id="20" name="gameInput">        
+        <position height="18" width="59" x="290" y="184"/>      
       </attribute>      
-      <multiplicity id="21" minimum="0" maximum="2147483647">        
-        <position height="16" width="21" x="1142" y="372"/>      
+      <multiplicity id="21" minimum="0" maximum="1">        
+        <position height="16" width="23" x="235" y="254"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="22">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="23" name="sceneChanger"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="26" name="kListener"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+    <bendpoint x="311" y="322"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="23" name="kListener">        
+        <position height="0" width="0" x="-267" y="-102"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-267" y="-102"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="29" name="sceneChanger"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+  <association id="25">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="26" name="cc">        
+        <position height="0" width="0" x="355" y="293"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="355" y="293"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="29" name="gameInputChecker">        
+        <position height="18" width="99" x="259" y="213"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-1097" y="-97"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="31">    
-    <end type="SOURCE" refId="7" navigable="false">      
+    <end type="SOURCE" refId="9" navigable="false">      
       <attribute id="32" name="sceneChanger">        
-        <position height="18" width="81" x="170" y="374"/>      
+        <position height="18" width="81" x="175" y="527"/>      
       </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="16" width="23" x="220" y="503"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="34">    
-    <bendpoint x="1020" y="262"/>    
+    <bendpoint x="319" y="265"/>    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="35" name="gameInput">        
-        <position height="18" width="59" x="1070" y="260"/>      
+      <attribute id="35" name="gameInputList">        
+        <position height="18" width="76" x="278" y="241"/>      
       </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="16" width="23" x="1139" y="267"/>      
+      <multiplicity id="36" minimum="0" maximum="2147483647">        
+        <position height="16" width="21" x="233" y="198"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="37">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="38" name="kListener"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="38" name="sceneChanger">        
+        <position height="18" width="81" x="165" y="446"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="16" width="23" x="224" y="430"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
