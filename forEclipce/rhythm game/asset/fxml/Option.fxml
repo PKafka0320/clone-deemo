@@ -7,13 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Option" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.OptionController">
+<AnchorPane fx:id="Option" styleClass="background" stylesheets="@../css/option.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.OptionController">
    <children>
-      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/background.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="BacktoMain" fitHeight="98.0" fitWidth="101.0" layoutX="710.0" layoutY="382.0" onMouseClicked="#BackToMain" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/BackToMain.png" />

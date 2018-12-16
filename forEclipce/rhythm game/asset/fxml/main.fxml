@@ -6,13 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="main" opacity="1.00" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.MainController">
+<AnchorPane fx:id="main" opacity="1.00" prefHeight="480.0" prefWidth="800.0" styleClass="background" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.MainController">
    <children>
-      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/background.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="Songs" fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="165.0" onMouseClicked="#SongsPressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/SongsButton.png" />
