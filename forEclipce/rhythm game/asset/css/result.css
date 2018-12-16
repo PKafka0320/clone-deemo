@@ -1,14 +1,4 @@
-@font-face{
-    font-family: rankFont; /*a name to be used later*/
-    src: url('../font/FANTIQUE.TTF'); /*URL to font*/
-}
-
 .background{
     -fx-background-image: url("../image/background5.jpg");
     -fx-background-size: cover;
-}
-
-.rank{
-    -fx-font-size: 200pt;
-    -fx-font-family: rankFont;
 }

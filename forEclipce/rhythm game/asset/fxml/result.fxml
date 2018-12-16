@@ -51,7 +51,7 @@
                   <BoxBlur height="0.0" iterations="2" width="30.0" />
                </effect>
             </Rectangle>
-            <Label alignment="CENTER" layoutX="-95.0" layoutY="86.0" prefHeight="47.0" prefWidth="204.0" text="Perfect Hit">
+            <Label fx:id="perfectHit" alignment="CENTER" layoutX="-95.0" layoutY="86.0" prefHeight="47.0" prefWidth="204.0" text="Perfect Hit">
                <font>
                   <Font name="Gloucester MT Extra Condensed" size="40.0" />
                </font>
@@ -88,7 +88,7 @@
                   <BoxBlur height="0.0" iterations="2" width="30.0" />
                </effect>
             </Rectangle>
-            <Label alignment="CENTER" layoutX="-102.0" layoutY="86.0" prefHeight="47.0" prefWidth="204.0" text="Combo">
+            <Label fx:id="combo" alignment="CENTER" layoutX="-102.0" layoutY="86.0" prefHeight="47.0" prefWidth="204.0" text="Combo">
                <font>
                   <Font name="Gloucester MT Extra Condensed" size="40.0" />
                </font>
@@ -115,7 +115,7 @@
             </Rectangle>
             <Label fx:id="songName" layoutX="225.0" layoutY="6.0" prefHeight="44.0" prefWidth="421.0" text="Suspenseful Third Day" textFill="WHITE">
                <font>
-                  <Font name="Fantique Four" size="38.0" />
+                  <Font name="Fantique Four" size="40.0" />
                </font>
                <effect>
                   <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" spread="0.6" width="20.0" />
@@ -128,7 +128,7 @@
             <Font name="RocknRollTypo" size="50.0" />
          </font>
       </Label>
-      <ImageView fitHeight="98.0" fitWidth="101.0" layoutX="710.0" layoutY="382.0" onKeyPressed="#BackToMain" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="98.0" fitWidth="101.0" layoutX="710.0" layoutY="382.0" onMouseClicked="#BackToMain" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/BackToMain.png" />
          </image>

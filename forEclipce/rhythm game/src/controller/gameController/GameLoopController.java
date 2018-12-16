@@ -93,6 +93,7 @@ public class GameLoopController {
 					}
 					else {
 						if(endDelayTime < ((currentNanoTime-endTimerTime)/1000000000.0)) {
+							musicPlayer.stop();
 							this.stop();
 						}
 					}
