@@ -13,7 +13,7 @@ public class GameLoopTester extends Application {
 	public void start(Stage theStage) {
 		theStage.setTitle("gameLoop Example");
 
-		GameLoopController controller = new GameLoopController("music1", "SuspensefulThirdDay");
+		GameLoopController controller = new GameLoopController("SuspensefulThirdDay");
 		theStage.setScene(controller.getScene());
 
 		controller.start();
