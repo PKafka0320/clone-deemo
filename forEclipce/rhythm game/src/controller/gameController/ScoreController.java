@@ -37,11 +37,18 @@ public class ScoreController {
 			score.addScore(addedScore);
 		}
 	}
+	
+	public void updatePerfectHit( CollisionTypeFormat collisionType ) {
+		if(collisionType.getCollisionType() == "perfect") {
+			score.addPerfectHit();
+		}
+	}
 
 	public boolean update( CollisionTypeFormat collisionType, double currentTime ) {
 		try {
 			updateCombo(collisionType, currentTime);
 			updateScore(collisionType);
+			updatePerfectHit( collisionType );
 			return true;
 		}
 		catch (Exception e) {

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="SongList" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.SongListController">
+<AnchorPane fx:id="SongList" styleClass="background" stylesheets="@../css/songList.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController.SongListController">
    <children>
-      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Song" fitHeight="301.0" fitWidth="304.0" layoutX="250.0" layoutY="59.0" onMouseClicked="#SelectSong" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/background.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="Song" fitHeight="220.0" fitWidth="230.0" layoutX="290.0" layoutY="130.0" onMouseClicked="#SelectSong" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/Suspensful_Third_day_mini.png" />
+            <Image url="@../image/Suspenseful_Third_Day.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="98.0" fitWidth="101.0" layoutX="710.0" layoutY="382.0" onMouseClicked="#BackToMain" pickOnBounds="true" preserveRatio="true">
@@ -21,5 +19,23 @@
             <Image url="@../image/BackToMain.png" />
          </image>
       </ImageView>
+      <Label fx:id="scoreString" layoutX="271.0" layoutY="376.0" text="score : ">
+         <font>
+            <Font name="RocknRollTypo" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="score" layoutX="346.0" layoutY="382.0" prefHeight="33.0" prefWidth="113.0" text="1000000">
+         <font>
+            <Font name="RocknRollTypo" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="songName" alignment="CENTER" layoutX="192.0" layoutY="338.0" prefHeight="44.0" prefWidth="421.0" text="Suspenseful Third Day" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Fantique Four" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="20.0" radius="9.5" spread="0.6" width="20.0" />
+         </effect>
+      </Label>
    </children>
 </AnchorPane>

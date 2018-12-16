@@ -1,8 +1,10 @@
-<<<<<<< HEAD
-/calculater/
-=======
->>>>>>> refs/heads/FunctionUpdate
 /sceneController/
+/reader/
+/application/
+/format/
 /gameController/
+/calculater/
 /effectDrawer/
 /gamedrawer/
+/eventProcesser/
+/tester/

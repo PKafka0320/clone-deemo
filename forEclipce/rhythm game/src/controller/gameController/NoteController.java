@@ -12,24 +12,30 @@ import format.GameInputFormat;
 import format.NoteFormat;
 import javafx.scene.canvas.GraphicsContext;
 import reader.NoteReader;
+import reader.SettingReader;
+
 
 public class NoteController {
 	private ScoreController scoreController;
 	private CollisionChecker cc = new CollisionChecker(new double[] { 0.2, 0.12, 0.08 });
-	private NotePositionCalc npCalc = new NotePositionCalc(1);
+	private NotePositionCalc npCalc;
 	private NoteReader nReader = new NoteReader();
 	private KeyListener kListener;
 	private GraphicsContext gc;
+	private SettingReader settingReader = new SettingReader();
 
-	Queue<NoteFormat> notes;
+	private Queue<NoteFormat> notes;
 	public int noteAmount;
 	ArrayList<NoteFormat> notesOnScreen = new ArrayList<NoteFormat>();
 	double startTime;
 
-	public NoteController(KeyListener kListener, ScoreController scoreController, GraphicsContext gc) {
+	public NoteController(KeyListener kListener, ScoreController scoreController, GraphicsContext gc, NotePositionCalc npCalc) {
+		this.npCalc = npCalc;
 		this.kListener = kListener;
 		this.scoreController = scoreController;
 		this.gc = gc;
+		double[] settingValues = settingReader.readSetting();
+		this.nReader.setSync(settingValues[1]);
 	}
 
 	public void setStartTime(double startTime) {
